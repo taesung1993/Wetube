@@ -1,0 +1,27 @@
+header.header
+    .header__column
+        span
+            i.fab.fa-youtube
+        span WETUBE
+    .header__column
+        include ./searchForm
+    .header__column
+        //- 로그인 됐을 때
+        if user !== null
+            span
+                i.fas.fa-video
+                | UPLOAD
+            span
+                i.fas.fa-user-check
+                | MY
+            span
+                i.fas.fa-unlock
+                | LOGOUT
+        //- 로그인 안됐을 때
+        else
+            span
+                i.fas.fa-lock
+                | LOGIN
+            span
+                i.fas.fa-user-plus
+                | JOIN

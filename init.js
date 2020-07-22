@@ -1,7 +1,6 @@
-import express from "express";
+import app from "./app";
 
 const PORT = 8080;
-const app = express();
 
 app.listen(PORT, () =>
   console.log(`✅ Listeoning on: http://localhost:${PORT}`)
