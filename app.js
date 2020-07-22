@@ -1,3 +1,4 @@
+import bodyParser from "body-parser";
 import express from "express";
 import routes from "./routes";
 import morgan from "morgan";
@@ -13,8 +14,11 @@ const app = express();
 
 app.use(helmet());
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.set("view engine", "pug");
 
+app.use("/uploads", express.static("uploads"));
 app.use(localMiddles);
 app.use(routes.home, globalRouter);
 app.use(routes.video, videoRouter);

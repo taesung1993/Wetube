@@ -1,0 +1,8 @@
+mixin videoBlock(video={})
+    .videoBlock
+        a(href=routes.videoDetail(video.id))
+            video.homeVideo(src=`/${video.videoFile}`)
+            .videoInfo
+                .title=video.title
+                .detail
+                    span=video.view

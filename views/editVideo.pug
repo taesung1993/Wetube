@@ -3,12 +3,12 @@ extends ./layouts/main.pug
 block contents
     .editvideo-page
         .editvideo.form-container
-            form(action=`${routes.video}${routes.editVideo}`, method="post")
-                input(type="text", name="title", placeholder="Title")
-                textarea(type="text", name="description" placeholder="description")
+            form(action=routes.editVideo(video._id), method="post")
+                input(type="text", name="title", placeholder="Title", value=video.title)
+                textarea(type="text", name="description" placeholder="description")=video.description
                 input(type="submit", value="EDIT VIDEO")
-        .edit-btn
-            a(href=`${routes.video}${routes.deleteVideo}`)
+        .del-btn
+            a(href=routes.deleteVideo(video._id))
                 button
                     span
                         i.fas.fa-trash-alt

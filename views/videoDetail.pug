@@ -1,4 +1,27 @@
 extends ./layouts/main.pug
 
 block contents
-    h1 VIDEO DETAIL
+    .videoDetail-page
+        .videoDetail__videoPlayer
+            video(src=`/${video.videoFile}`)
+        .videoDetail__header
+            .videoDetail__row
+                span=video.title
+            .videoDetail__row
+                span views:
+                span=video.view
+                span=video.createdAt
+        .videoDetail__main
+            .videoDetail__col
+                span 사진
+            .videoDetail__col
+                .videoDetail__row
+                    span 이름
+                    a(href=`/video/${video._id}/edit-video`)
+                        button
+                            span
+                                i.fas.fa-edit
+                                | Edit Video
+                .videoDetail__row
+                    p.videoDetail__description=video.description
+

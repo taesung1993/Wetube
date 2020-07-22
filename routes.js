@@ -12,7 +12,7 @@ const UPLOAD = "/upload";
 const VIDEO = "/video";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit-video";
-const DELETE_VIDEO = "/:id/delete-video";
+const DELETE_VIDEO = "/:id/delete";
 
 // userRouter
 
@@ -29,9 +29,15 @@ const routes = {
   search: SEARCH,
   upload: UPLOAD,
   video: VIDEO,
-  videoDetail: VIDEO_DETAIL,
-  editVideo: EDIT_VIDEO,
-  deleteVideo: DELETE_VIDEO,
+  videoDetail: (id) => {
+    return id ? `/video/${id}` : VIDEO_DETAIL;
+  },
+  editVideo: (id) => {
+    return id ? `/video/${id}/edit-video` : EDIT_VIDEO;
+  },
+  deleteVideo: (id) => {
+    return id ? `/video/${id}/delete` : DELETE_VIDEO;
+  },
   user: USER,
   userDetail: USER_DETAIL,
   editProfile: EDIT_PROFILE,

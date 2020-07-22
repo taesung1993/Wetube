@@ -2,14 +2,14 @@
 
 - TODAY's TO DO LIST
 - COMPLETE THE PAGES (FUNCTION)
-- [ ] HOME
+- [x] HOME (Page controller complete)
 - [x] JOIN
 - [x] LOGIN
 - [ ] LOGOUT
 - [x] UPLOAD
-- [ ] VIDEO DETAIL
-- [x] VIDEO EDIT
-- [ ] VIDEO DELETE
+- [x] VIDEO DETAIL (Page controller complete)
+- [x] VIDEO EDIT (Page controller complete)
+- [x] VIDEO DELETE (Page controller complete)
 - [x] EDIT PROFILE
 - [ ] CHANGE PASSWORD
 - [ ] PROFILE
