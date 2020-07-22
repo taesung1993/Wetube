@@ -1,4 +1,10 @@
 extends ./layouts/main.pug
 
 block contents
-    h1 LOGIN
+    .login-page
+        .login.form-container
+            form(action="/login", method="post")
+                input(type="email", name="email", placeholder="E-mail")
+                input(type="password", name="password" placeholder="Password")
+                input(type="submit", value="Login")
+        include ./partials/socialLogin

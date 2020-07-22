@@ -1,4 +1,15 @@
 extends ./layouts/main.pug
 
 block contents
-    h1 EDIT VIDEO
+    .editvideo-page
+        .editvideo.form-container
+            form(action=`${routes.video}${routes.editVideo}`, method="post")
+                input(type="text", name="title", placeholder="Title")
+                textarea(type="text", name="description" placeholder="description")
+                input(type="submit", value="EDIT VIDEO")
+        .edit-btn
+            a(href=`${routes.video}${routes.deleteVideo}`)
+                button
+                    span
+                        i.fas.fa-trash-alt
+                    span DELETE VIDEO

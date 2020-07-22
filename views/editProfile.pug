@@ -1,4 +1,15 @@
 extends ./layouts/main.pug
 
 block contents
-    h1 EDIT PROFILE
+    .editProfile-page
+        .editProfile.form-container
+            form(action=`${routes.user}${routes.editProfile}`, method="post")
+                input(type="file", name="avatar")
+                input(type="text", name="name", placeholder="Name")
+                input(type="submit", value="Edit Profile")
+        .changePassword-btn
+            a(href=`${routes.user}${routes.changePassword}`)
+                button
+                    span
+                        i.fab.fa-expeditedssl
+                    span CHANGE PASSWORD
