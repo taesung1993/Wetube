@@ -2,11 +2,20 @@ extends ./layouts/main.pug
 
 block contents
     .join-page
-        .join.form-container
-            form(action="/join", method="post")
-                input(type="text", name="name", placeholder="name")
-                input(type="email", name="email", placeholder="E-mail")
-                input(type="password", name="password" placeholder="Password")
-                input(type="password", name="verifyPassword", placeholder="Verify Password")
-                input(type="submit", value="Join Now")
-        include ./partials/socialLogin
+        .join-box
+            .join-box__row
+                h2 
+                    span#logoInForm
+                        i.fab.fa-youtube
+                    span#logonameInForm WETUBE
+                h3  Welcome to WETUBE   
+            .join-box__row
+                .form-container
+                    form(action="/join", method="post")
+                        input(type="text", name="name", placeholder="name", required=true)
+                        input(type="email", name="email", placeholder="E-mail", required=true)
+                        input(type="password", name="password" placeholder="Password", required=true)
+                        input(type="password", name="verifyPassword", placeholder="Verify Password", required=true)
+                        input(type="submit", value="Join Now")
+                    h6 Join using Social Network 
+                    include ./partials/socialLogin

@@ -1,32 +1,32 @@
 header.header
     .header__column
-        span
+        span#logo
             i.fab.fa-youtube
-        span WETUBE
+        span#logoname WETUBE
     .header__column
         include ./searchForm
     .header__column
         //- 로그인 됐을 때
         if user === null
             a(href=`${routes.upload}`)
-                span
+                div.icon
                     i.fas.fa-video
-                    | UPLOAD
+                    span.meaning UPLOAD
             a(href=`${routes.user}${routes.userDetail}`)
-                span
+                div.icon
                     i.fas.fa-user-check
-                    | MY
+                    span.meaning MY
             a(href=`${routes.logout}`)
-                span
+                div.icon
                     i.fas.fa-unlock
-                    | LOGOUT
+                    span.meaning LOGOUT
         //- 로그인 안됐을 때
         else
             a(href=`${routes.login}`)
-                span
+                div.icon
                     i.fas.fa-lock
-                    | LOGIN
+                    span.meaning LOGIN
             a(href=`${routes.join}`)
-                span
+                div.icon
                     i.fas.fa-user-plus
-                    | JOIN
+                    span.meaning JOIN

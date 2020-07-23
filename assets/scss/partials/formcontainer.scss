@@ -1,0 +1,30 @@
+.form-container {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.4);
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 100%;
+      padding: 10px 20px;
+      border: 1px solid $lineColor;
+      border-radius: 5px;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      &[type="submit"] {
+        background-color: #0985e3a8;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        &:hover {
+          background-color: #0985e3;
+        }
+      }
+    }
+  }
+}

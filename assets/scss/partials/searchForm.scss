@@ -1,0 +1,28 @@
+form {
+  width: 100%;
+  display: flex;
+  input {
+    padding: 5px 10px;
+    width: 100%;
+    font-size: 20px;
+    border: 1px solid $transBlack;
+    &:hover,
+    &:focus {
+      border: 1px solid #0984e3;
+    }
+  }
+  button {
+    margin-left: 2px;
+    width: 80px;
+    span {
+      font-size: 18px;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+      }
+    }
+  }
+}
