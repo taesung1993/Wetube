@@ -3,7 +3,6 @@ import express from "express";
 import routes from "./routes";
 import morgan from "morgan";
 import helmet from "helmet";
-import path from "path";
 
 import { globalRouter } from "./Routers/globalRouter";
 import { videoRouter } from "./Routers/videoRouter";
@@ -19,6 +18,7 @@ app.use(bodyParser.json());
 app.set("view engine", "pug");
 
 app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static("static"));
 app.use(localMiddles);
 app.use(routes.home, globalRouter);
 app.use(routes.video, videoRouter);

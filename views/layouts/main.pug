@@ -3,7 +3,9 @@ html
     head
         title #{pageTitle} | #{siteName} 
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css")
+        link(rel="stylesheet", href="/static/styles.css")
     body
         include ../partials/header
         main
             block contents
+        script(src="/static/main.js")
