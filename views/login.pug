@@ -12,8 +12,8 @@ block contents
             .login-box__row
                 .form-container
                     form(action="/login", method="post")
-                        input(type="email", name="email", placeholder="E-mail")
-                        input(type="password", name="password" placeholder="Password")
+                        input(type="email", name="email", placeholder="E-mail", required=true)
+                        input(type="password", name="password" placeholder="Password", required=true)
                         input(type="submit", value="Login")
                     h6 Login using Social Network 
                     include ./partials/socialLogin
