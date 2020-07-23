@@ -1,0 +1,30 @@
+footer {
+  padding: 30px 0;
+  background-color: $mainBg;
+  border-top: 1px solid $lineColor;
+  .footer__row {
+    display: flex;
+    justify-content: center;
+    &:first-child {
+      font-size: 30px;
+      font-weight: 800;
+      opacity: 0.3;
+      .footer__logo {
+        margin-right: 5px;
+      }
+      .footer__logoname {
+        letter-spacing: 2px;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-top: 10px;
+      span {
+        margin-right: 5px;
+        font-size: 18px;
+        font-weight: 400;
+        opacity: 0.5;
+      }
+    }
+  }
+}
