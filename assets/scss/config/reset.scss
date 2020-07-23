@@ -138,6 +138,11 @@ table {
   border-spacing: 0;
 }
 
+input[type="submit"],
+button {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: inherit;
