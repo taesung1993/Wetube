@@ -1,4 +1,21 @@
 extends ./layouts/main.pug
 
 block contents
-    h1 USER DETAIL
+    .userDetail-page
+        header.userDetail__header
+            .userDetail__col
+                img(src=me.avatarUrl)
+                span=me.name
+            .userDetail__col
+                if user !== null
+                    a(href=routes.editProfile(me._id))
+                        button
+                            span EDIT PROFILE
+                    a(href=routes.changePassword(me._id))
+                        button
+                            span CHANGE PASSWORD
+        section.userDetail__menu
+            span Videos
+        main.video-list
+            h4 Uploaded Videos
+    

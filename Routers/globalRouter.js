@@ -1,4 +1,5 @@
 import express from "express";
+import passport from "passport";
 import routes from "../routes";
 import {
   home,
@@ -10,6 +11,10 @@ import {
   postLogin,
   getLogin,
   logout,
+  githubLogin,
+  postGithubLogin,
+  googleLogin,
+  postGoogleLogin,
 } from "../controllers/globalController";
 import { uploadVideo, onlyPrivate, onlyPublic } from "../middlewares";
 
@@ -28,3 +33,17 @@ globalRouter.get(routes.login, onlyPublic, getLogin);
 globalRouter.post(routes.login, postLogin);
 
 globalRouter.get(routes.logout, onlyPrivate, logout);
+
+globalRouter.get(routes.github, githubLogin);
+globalRouter.get(
+  routes.githubCb,
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  postGithubLogin
+);
+
+globalRouter.get(routes.google, googleLogin);
+globalRouter.get(
+  routes.googleCb,
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  postGoogleLogin
+);

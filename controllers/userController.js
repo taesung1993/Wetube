@@ -1,3 +1,7 @@
+export const meDetail = (req, res) => {
+  res.render("userDetail", { pageTitle: "USER DETAIL", me: req.user });
+};
+
 export const userDetail = (req, res) => {
   res.render("userDetail", { pageTitle: "USER DETAIL" });
 };

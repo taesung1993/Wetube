@@ -20,6 +20,15 @@ const USER = "/user";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/:id/edit-profile";
 const CHANGE_PASSWORD = "/:id/change-password";
+const ME = "/me";
+
+// github
+const GITHUB = "/auth/github";
+const GITHUB_CB = "/auth/github/callback";
+
+// gogle
+const GOOGLE = "/auth/google";
+const GOOGLE_CB = "/auth/google/callback";
 
 const routes = {
   home: HOME,
@@ -39,9 +48,20 @@ const routes = {
     return id ? `/video/${id}/delete` : DELETE_VIDEO;
   },
   user: USER,
-  userDetail: USER_DETAIL,
-  editProfile: EDIT_PROFILE,
-  changePassword: CHANGE_PASSWORD,
+  me: ME,
+  userDetail: (id) => {
+    return id ? `/user/${id}` : VIDEO_DETAIL;
+  },
+  editProfile: (id) => {
+    return id ? `/user/${id}/edit-profile` : EDIT_PROFILE;
+  },
+  changePassword: (id) => {
+    return id ? `/user/${id}/change-password` : CHANGE_PASSWORD;
+  },
+  github: GITHUB,
+  githubCb: GITHUB_CB,
+  google: GOOGLE,
+  googleCb: GOOGLE_CB,
 };
 
 export default routes;
