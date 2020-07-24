@@ -8,7 +8,7 @@ header.header
         include ./searchForm
     .header__column
         //- 로그인 됐을 때
-        if user === null
+        if user !== null
             a(href=`${routes.upload}`)
                 div.icon
                     i.fas.fa-video
