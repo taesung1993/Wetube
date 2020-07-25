@@ -7,7 +7,7 @@ block contents
                 img(src=`/${me.avatarUrl}`)
                 span=me.name
             .userDetail__col
-                if user !== null
+                if loggedUser !== null && loggedUser.id === me.id
                     a(href=routes.editProfile(me._id))
                         button
                             span EDIT PROFILE

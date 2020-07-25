@@ -7,7 +7,7 @@ const multerAvatar = multer({ dest: "uploads/avatars/" });
 export const localMiddles = (req, res, next) => {
   res.locals.siteName = "WETUBE";
   res.locals.routes = routes;
-  res.locals.user = req.user || null;
+  res.locals.loggedUser = req.user || null;
   next();
 };
 

@@ -5,8 +5,18 @@ export const meDetail = (req, res) => {
   res.render("userDetail", { pageTitle: "USER DETAIL", me: req.user });
 };
 
-export const userDetail = (req, res) => {
-  res.render("userDetail", { pageTitle: "USER DETAIL" });
+export const userDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    console.log(user);
+    res.render("userDetail", { pageTitle: "USER DETAIL", me: user });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 };
 
 export const getEditProfile = (req, res) => {

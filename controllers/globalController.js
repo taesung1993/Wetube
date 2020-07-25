@@ -22,15 +22,18 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
   const {
     body: { title, description },
+    user: { _id },
     file: { path },
   } = req;
   try {
-    rgb(0, 206, 201);
     const newVideo = await Video.create({
       videoFile: path,
       title,
       description,
+      creator: _id,
     });
+    req.user.videos.push(newVideo._id);
+    req.user.save();
     res.redirect(routes.videoDetail(newVideo._id));
   } catch (error) {
     console.log(error);

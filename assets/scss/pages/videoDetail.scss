@@ -1,0 +1,120 @@
+.videoDetail-page {
+  min-height: 92vh;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  .videoDetail__videoPlayer {
+    width: 700px;
+    margin: 0 auto;
+    video {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .videoDetail__header {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-bottom: 1px solid $lineColor;
+
+    .videoDetail__row {
+      &:first-child {
+        span {
+          font-size: 28px;
+          font-weight: 600;
+        }
+      }
+
+      &:last-child {
+        padding: 30px 0;
+        display: flex;
+        justify-content: space-between;
+
+        .videoDetail__col {
+          &:first-child {
+            font-size: 18px;
+            span {
+              &:first-child {
+                font-weight: 400;
+              }
+              &:nth-child(2) {
+                margin: 0 5px;
+              }
+              &:nth-child(3) {
+                margin-right: 5px;
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            display: flex;
+            #videolike,
+            #videohate {
+              margin-left: 10px;
+              padding: 15px;
+              font-size: 20px;
+              cursor: pointer;
+              i {
+                margin: 0 auto;
+                opacity: 0.5;
+              }
+              &:hover {
+                background-color: rgba(0, 0, 0, 0.055);
+              }
+            }
+            #videohate {
+              i {
+                transform: rotateY(180deg);
+              }
+            }
+            #editVideoBtn {
+              padding: 5px 10px;
+              margin-left: 10px;
+              background-color: #6c5ce7;
+              border-radius: 5px;
+              font-size: 20px;
+              color: white;
+              font-weight: 600;
+
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .videoDetail__main {
+    width: 700px;
+    margin: 0 auto;
+    padding: 30px 0;
+    border-bottom: 1px solid $lineColor;
+    display: flex;
+    .videoDetail__col {
+      &:first-child {
+        margin-right: 15px;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        }
+      }
+      &:last-child {
+        .videoDetail__row {
+          &:first-child {
+            height: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+}

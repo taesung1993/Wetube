@@ -13,9 +13,10 @@ const videoSchema = new mongoose.Schema({
     type: String,
     required: "Description is required",
   },
-  // creator: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  // },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Users",
+  },
   view: {
     type: Number,
     default: 0,

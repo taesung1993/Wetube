@@ -1,9 +1,10 @@
 .upload-page {
-  height: 100%;
+  min-height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 60px 0;
 
   .upload-box {
     width: 700px;

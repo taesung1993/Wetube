@@ -1,5 +1,6 @@
 .userDetail-page {
-  height: 100%;
+  min-height: 92vh;
+  padding-bottom: 60px;
   .userDetail__header {
     background-color: $userDetailHeaderBg;
     padding: 30px 60px;

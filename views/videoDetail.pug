@@ -8,20 +8,28 @@ block contents
             .videoDetail__row
                 span=video.title
             .videoDetail__row
-                span views:
-                span=video.view
-                span=video.createdAt
+                .videoDetail__col
+                    span Views
+                    span=video.view
+                    span •
+                    span #{video.createdAt.toLocaleDateString()}
+                .videoDetail__col
+                    .thumbs-box 
+                        span#videolike
+                            i.fas.fa-thumbs-up
+                        span#videohate
+                            i.fas.fa-thumbs-down
+                    if loggedUser !== null && loggedUser.id === video.creator.id
+                        a(href=routes.editVideo(video.id))
+                            span#editVideoBtn Edit Video
         .videoDetail__main
             .videoDetail__col
-                span 사진
+                a(href=routes.userDetail(video.creator.id))
+                    img(src=`/${video.creator.avatarUrl}`)
             .videoDetail__col
                 .videoDetail__row
-                    span 이름
-                    a(href=`/video/${video._id}/edit-video`)
-                        button
-                            span
-                                i.fas.fa-edit
-                                | Edit Video
+                    a(href=routes.userDetail(video.creator.id))
+                        span=video.creator.name
                 .videoDetail__row
                     p.videoDetail__description=video.description
 

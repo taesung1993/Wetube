@@ -20,6 +20,18 @@ const userSchema = new mongoose.Schema({
   googleId: {
     type: Number,
   },
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comments",
+    },
+  ],
+  videos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Videos",
+    },
+  ],
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });
