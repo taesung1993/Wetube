@@ -2,9 +2,9 @@ extends ./layouts/main.pug
 
 block contents
     .userDetail-page
-        header.userDetail__header
+        .userDetail__header
             .userDetail__col
-                img(src=me.avatarUrl)
+                img(src=`/${me.avatarUrl}`)
                 span=me.name
             .userDetail__col
                 if user !== null
@@ -14,8 +14,8 @@ block contents
                     a(href=routes.changePassword(me._id))
                         button
                             span CHANGE PASSWORD
-        section.userDetail__menu
+        .userDetail__menu
             span Videos
-        main.video-list
+        .video-list
             h4 Uploaded Videos
     

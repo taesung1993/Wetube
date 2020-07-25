@@ -2,14 +2,22 @@ extends ./layouts/main.pug
 
 block contents
     .editProfile-page
-        .editProfile.form-container
-            form(action=`${routes.user}${routes.editProfile}`, method="post")
-                input(type="file", name="avatar")
-                input(type="text", name="name", placeholder="Name")
-                input(type="submit", value="Edit Profile")
-        .changePassword-btn
-            a(href=`${routes.user}${routes.changePassword}`)
-                button
-                    span
-                        i.fab.fa-expeditedssl
-                    span CHANGE PASSWORD
+        .editProfile__box
+            h3
+                span
+                    i.far.fa-grin.squint
+                span Modify your profile! 
+            .form-container
+                form(action=routes.editProfile(me._id), method="post",  enctype="multipart/form-data")
+                    label(for="avatar") Your Avatar
+                    input(type="file", id="avatar", name="avatar", accpet="image/*")
+                    input(type="button" id="deleteAvatarBtn", value="Delete Avatar: False")
+                    input(type="text", id="isdeleteAvatar", name="isAvatarDel", value="")
+                    input(type="text", name="name", placeholder="Name", value=me.name, required=true)
+                    input(type="submit", value="Edit Profile")
+                .changePassword-btn
+                    a(href=routes.changePassword(me._id))
+                        button
+                            span.changePassword__icon
+                                i.fas.fa-user-shield
+                            span CHANGE PASSWORD
