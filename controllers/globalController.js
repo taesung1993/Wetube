@@ -121,8 +121,21 @@ export const postJoin = async (req, res, next) => {
 
 // search part
 
-export const search = (req, res) => {
-  res.render("search", { pageTitle: "SEARCH" });
+export const search = async (req, res) => {
+  const {
+    query: { key },
+  } = req;
+  let videos = [];
+  try {
+    videos = await Video.find({
+      title: { $regex: key, $options: "i" },
+    }).populate("creator");
+    console.log(videos);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    res.render("search", { pageTitle: "SEARCH", videos });
+  }
 };
 
 // login part

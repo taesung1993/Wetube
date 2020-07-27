@@ -1,4 +1,20 @@
 extends ./layouts/main.pug
+include ./mixins/videoBlock
 
 block contents
-    h1 SEARCH
+    .home-page.search
+        if videos.length > 0
+            h3 Video List
+            .videos.searched
+                each video in videos
+                    +videoBlock({
+                        id:video._id,
+                        videoFile: video.videoFile,
+                        avatarUrl: video.creator.avatarUrl,
+                        creatorName: video.creator.name,
+                        title: video.title,
+                        view: video.view
+                    })
+        else
+            #notFoundmsg 
+                span 😥 The result not found.

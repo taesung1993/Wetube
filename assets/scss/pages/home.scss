@@ -1,6 +1,16 @@
 .home-page {
   min-height: 92vh;
   padding: 60px;
+  position: relative;
+  #notFoundmsg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+  }
   h3 {
     font-size: 22px;
     font-weight: 600;
