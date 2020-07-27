@@ -957,3 +957,46 @@ footer {
           -ms-flex-align: center;
               align-items: center;
       margin-bottom: 15px; }
+
+.home-page {
+  min-height: 92vh;
+  padding: 60px; }
+  .home-page h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9e9e9; }
+  .home-page .videos {
+    height: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: minmax(280px, 0.86fr); }
+    .home-page .videos .videoBlock video {
+      width: 100%;
+      -o-object-fit: cover;
+         object-fit: cover; }
+
+.videoBlock .videoBlock__info {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .videoBlock .videoBlock__info .videoBlock__col:first-child {
+    margin-right: 10px; }
+  .videoBlock .videoBlock__info .videoBlock__col:last-child {
+    width: 100%;
+    padding-top: 5px; }
+  .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row {
+    width: 100%; }
+    .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:first-child {
+      max-height: 50px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 400; }
+    .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:last-child span {
+      display: block; }

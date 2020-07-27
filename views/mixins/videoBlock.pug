@@ -2,7 +2,11 @@ mixin videoBlock(video={})
     .videoBlock
         a(href=routes.videoDetail(video.id))
             video.homeVideo(src=`/${video.videoFile}`)
-            .videoInfo
-                .title=video.title
-                .detail
-                    span=video.view
+            .videoBlock__info
+                .videoBlock__col
+                    img(src=video.avatarUrl, width="50px", height="50px")                
+                .videoBlock__col
+                    .videoBlock__row=video.title
+                    .videoBlock__row
+                        span=video.creatorName
+                        span view: #{video.view}

@@ -1,0 +1,30 @@
+.videoBlock {
+  .videoBlock__info {
+    padding-top: 20px;
+    display: flex;
+    .videoBlock__col {
+      &:first-child {
+        margin-right: 10px;
+      }
+      &:last-child {
+        width: 100%;
+        padding-top: 5px;
+      }
+
+      .videoBlock__row {
+        width: 100%;
+        &:first-child {
+          max-height: 50px;
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: 400;
+        }
+        &:last-child {
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

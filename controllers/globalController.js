@@ -6,7 +6,7 @@ import User from "../models/User";
 export const home = async (req, res) => {
   let videos = [];
   try {
-    videos = await Video.find({});
+    videos = await Video.find({}).populate("creator");
   } catch (error) {
     console.log(error);
   } finally {

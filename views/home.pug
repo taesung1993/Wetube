@@ -3,11 +3,14 @@ include ./mixins/videoBlock
 
 block contents
     .home-page
+        h3 Video List
         .videos
             each video in videos
                 +videoBlock({
                     id:video._id,
                     videoFile: video.videoFile,
+                    avatarUrl: video.creator.avatarUrl,
+                    creatorName: video.creator.name,
                     title: video.title,
                     view: video.view
                 })

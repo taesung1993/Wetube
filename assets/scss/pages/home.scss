@@ -1,0 +1,26 @@
+.home-page {
+  min-height: 92vh;
+  padding: 60px;
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $lineColor;
+  }
+  .videos {
+    height: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: minmax(280px, 0.86fr);
+
+    .videoBlock {
+      video {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
