@@ -1,0 +1,128 @@
+.videoDetail__videoPlayer {
+  position: relative;
+  .videoPlayer__control-bar {
+    width: 100%;
+    height: 40px;
+    background-color: #54a1ffd7;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 20px;
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    .videoPlayer__col {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      #videoPlay,
+      #volumeCtrl,
+      #screenSizeCtrl {
+        display: block;
+        height: 100%;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          background-color: #4a69bdb0;
+        }
+      }
+      &:first-child {
+        #endTime {
+          margin-right: 10px;
+        }
+      }
+      &:nth-child(2) {
+        width: 100%;
+        .progress-bar {
+          width: 100%;
+          padding: 0 10px;
+          .progress-bar__track {
+            height: 3px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.39);
+            position: relative;
+            .current-rate {
+              height: 100%;
+              width: 0%;
+              position: absolute;
+              left: 0;
+              right: 0;
+              display: flex;
+              background-color: white;
+              #currentRateBtn {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: white;
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                position: absolute;
+                top: 50%;
+                right: -5px;
+                transform: translateY(-50%);
+                cursor: pointer;
+                &:hover {
+                  top: 50%;
+                  transform: scale(1.2, 1.2) translateY(-50%);
+                  box-shadow: 0 0 10px #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+      &:last-child {
+        display: flex;
+        position: relative;
+        .volume-control {
+          width: 40px;
+          height: 80px;
+          background-color: #54a1ffd7;
+          position: absolute;
+          bottom: 40px;
+          left: 0;
+          padding: 10px 0;
+          &:hover {
+            background-color: #4a69bde7;
+          }
+          .volume-bar__track {
+            width: 3px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.39);
+            margin: 0 auto;
+            position: relative;
+            .current-rate {
+              width: 3px;
+              height: 0%;
+              background-color: white;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              #volumeCtrlBtn {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: white;
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                position: absolute;
+                top: -5px;
+                left: 50%;
+                transform: translateX(-50%);
+                cursor: pointer;
+                &:hover {
+                  left: 50%;
+                  transform: scale(1.2, 1.2) translateX(-50%);
+                  box-shadow: 0 0 10px #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

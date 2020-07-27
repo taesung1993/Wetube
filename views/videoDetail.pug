@@ -4,6 +4,27 @@ block contents
     .videoDetail-page
         .videoDetail__videoPlayer
             video(src=`/${video.videoFile}`)
+            .videoPlayer__control-bar
+                .videoPlayer__col
+                    span#videoPlay
+                        i.fas.fa-play
+                    span#currentTime 00:00:00
+                    span.slash /
+                    span#endTime 00:00:00
+                .videoPlayer__col
+                    .progress-bar
+                        .progress-bar__track
+                                .current-rate
+                                    #currentRateBtn
+                .videoPlayer__col
+                    .volume-control
+                            .volume-bar__track
+                                .current-rate
+                                    #volumeCtrlBtn
+                    span#volumeCtrl
+                        i.fas.fa-volume-up
+                    span#screenSizeCtrl
+                        i.fas.fa-expand
         .videoDetail__header
             .videoDetail__row
                 span=video.title
