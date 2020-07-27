@@ -2,7 +2,7 @@ extends ./layouts/main.pug
 
 block contents
     .videoDetail-page
-        .videoDetail__videoPlayer
+        .videoDetail__videoPlayer(ondragstart="return false", onselectstart="return false")
             video(src=`/${video.videoFile}`)
             .videoPlayer__control-bar
                 .videoPlayer__col
