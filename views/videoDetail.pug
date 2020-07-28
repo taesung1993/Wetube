@@ -4,7 +4,7 @@ block contents
     .videoDetail-page
         .videoDetail__videoPlayer(ondragstart="return false", onselectstart="return false")
             video(src=`/${video.videoFile}`)
-            .videoPlayer__control-bar
+            .videoPlayer__control-bar.hidden
                 .videoPlayer__col
                     span#videoPlay
                         i.fas.fa-play
@@ -17,7 +17,7 @@ block contents
                                 .current-rate
                                     #currentRateBtn
                 .videoPlayer__col
-                    .volume-control
+                    .volume-control.hidden
                             .volume-bar__track
                                 .current-rate
                                     #volumeCtrlBtn

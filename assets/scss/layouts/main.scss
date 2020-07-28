@@ -18,6 +18,10 @@ main {
   background-color: $mainBg;
 }
 
+.hidden {
+  display: none !important;
+}
+
 #logoInForm {
   color: $red;
   font-size: 40px;

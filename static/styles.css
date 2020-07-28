@@ -152,6 +152,9 @@ main {
   height: auto;
   background-color: #f9f9f9; }
 
+.hidden {
+  display: none !important; }
+
 #logoInForm {
   color: #ff0000;
   font-size: 40px;
@@ -1130,6 +1133,8 @@ footer {
         -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
            -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
                 box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }
+    .videoDetail-page .videoDetail__main .videoDetail__col:nth-child(2) {
+      padding: 0 20px; }
     .videoDetail-page .videoDetail__main .videoDetail__col:last-child .videoDetail__row:first-child {
       height: 50px;
       font-size: 20px;
