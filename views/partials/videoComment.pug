@@ -1,0 +1,41 @@
+.comment-box
+    .comment__row
+        if video.comments.length > 1
+            span#commentNum #{video.comments.length}
+            span Comments
+        else
+            span#commentNum #{video.comments.length}
+            span Comment
+    .comment__row
+        .comment__col
+            img(src=`/${loggedUser.avatarUrl}`)
+        .comment__col
+            form
+                textarea(id="inputComment",placeholder="Add Comment")
+                .textarea-line
+    ul.comment__row.comment-list
+        li#newComment.comment.hidden
+            .comment__col
+                img#commentAvatar
+            .comment__col
+                .comment__row
+                    .comment__col
+                        span#commentCreator
+                        span#commentDate
+                    .comment__col
+                .comment__row
+                    span#commentContent
+        each comment in video.comments.reverse()
+            li.comment
+                .comment__col
+                    a(href=routes.userDetail(comment.creator))
+                        img(src=`/${comment.avatarUrl}`)
+                .comment__col
+                    .comment__row
+                        .comment__col
+                            a(href=routes.userDetail(comment.creator))
+                                span=comment.name
+                            span #{comment.createdAt.toLocaleDateString()}
+                        .comment__col
+                    .comment__row
+                        span=comment.content

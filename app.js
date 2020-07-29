@@ -15,6 +15,7 @@ import { userRouter } from "./Routers/userRouter";
 import { localMiddles } from "./middlewares";
 
 import "./passport";
+import { apiRouter } from "./routers/apiRouter";
 
 const app = express();
 const cookieStore = mongoStore(session);
@@ -44,5 +45,6 @@ app.use(localMiddles);
 app.use(routes.home, globalRouter);
 app.use(routes.video, videoRouter);
 app.use(routes.user, userRouter);
+app.use(routes.api, apiRouter);
 
 export default app;

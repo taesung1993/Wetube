@@ -30,6 +30,10 @@ const GITHUB_CB = "/auth/github/callback";
 const GOOGLE = "/auth/google";
 const GOOGLE_CB = "/auth/google/callback";
 
+// api
+const API = "/api";
+const API_VIDEO_COMMENT = "/video/:id/comment";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -62,6 +66,8 @@ const routes = {
   githubCb: GITHUB_CB,
   google: GOOGLE,
   googleCb: GOOGLE_CB,
+  api: API,
+  apiVideoComment: API_VIDEO_COMMENT,
 };
 
 export default routes;

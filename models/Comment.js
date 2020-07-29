@@ -5,6 +5,12 @@ const commentSchema = new mongoose.Schema({
     type: String,
     required: "Content is required",
   },
+  name: String,
+  avatarUrl: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     required: "Creator is required",

@@ -28,7 +28,6 @@ let isVolCtrl = false;
 let isProgressCtrl = false;
 
 let curentVolLevel = 0.5;
-videoPlayer.volume = 0.5;
 
 // 볼륨 컨트롤 함수들
 
@@ -207,10 +206,12 @@ const endProgressCtrl = () => {
 
 const showVideoCtrl = () => {
   videoControlBar.classList.remove("hidden");
+  window.addEventListener("keydown", handleSpacebarPlay);
 };
 
 const hideVideoCtrl = () => {
   videoControlBar.classList.add("hidden");
+  window.removeEventListener("keydown", handleSpacebarPlay);
 };
 
 const init = () => {
@@ -230,7 +231,7 @@ const init = () => {
   progressbarRange.addEventListener("mouseleave", endProgressCtrl);
 
   // 비디오 플레이 함수
-  window.addEventListener("keydown", handleSpacebarPlay);
+  // window.addEventListener("keydown", handleSpacebarPlay);
   playBtn.addEventListener("click", handleVideoPlay);
 
   // 볼륨 이벤트 함수
@@ -246,5 +247,6 @@ const init = () => {
 };
 
 if (videoContainer) {
+  videoPlayer.volume = 0.5;
   init();
 }

@@ -595,6 +595,135 @@ footer {
                      -moz-box-shadow: 0 0 10px #fff;
                           box-shadow: 0 0 10px #fff; }
 
+.comment-box {
+  width: 700px;
+  margin: 0 auto; }
+  .comment-box .comment__row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .comment-box .comment__row:first-child {
+      margin: 20px 0; }
+      .comment-box .comment__row:first-child span {
+        font-size: 20px;
+        font-weight: 600;
+        opacity: 0.6; }
+    .comment-box .comment__row .comment__col:first-child {
+      margin-right: 20px; }
+      .comment-box .comment__row .comment__col:first-child img {
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 50%;
+           -moz-border-radius: 50%;
+                border-radius: 50%;
+        -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+           -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }
+    .comment-box .comment__row .comment__col:nth-child(2) {
+      width: 100%; }
+      .comment-box .comment__row .comment__col:nth-child(2) form {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .comment-box .comment__row .comment__col:nth-child(2) form textarea {
+          resize: none;
+          overflow-y: hidden;
+          width: 100%;
+          height: 35px;
+          font-size: 20px;
+          font-weight: 400;
+          letter-spacing: 2px;
+          background-color: #f9f9f9;
+          border: none; }
+          .comment-box .comment__row .comment__col:nth-child(2) form textarea:focus {
+            outline: none; }
+          .comment-box .comment__row .comment__col:nth-child(2) form textarea:focus + .textarea-line {
+            background-color: #2d3436;
+            -webkit-animation: spread 0.5s forwards ease-in;
+               -moz-animation: spread 0.5s forwards ease-in;
+                 -o-animation: spread 0.5s forwards ease-in;
+                    animation: spread 0.5s forwards ease-in; }
+        .comment-box .comment__row .comment__col:nth-child(2) form .textarea-line {
+          width: 100%;
+          height: 1px;
+          background-color: #e9e9e9; }
+
+@-webkit-keyframes spread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@-moz-keyframes spread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@-o-keyframes spread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@keyframes spread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+  .comment-box .comment-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .comment-box .comment-list li {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 35px; }
+      .comment-box .comment-list li .comment__row {
+        margin: 0; }
+        .comment-box .comment-list li .comment__row:first-child .comment__col {
+          width: 100%; }
+          .comment-box .comment-list li .comment__row:first-child .comment__col:first-child {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-bottom: 15px; }
+            .comment-box .comment-list li .comment__row:first-child .comment__col:first-child span:first-child {
+              margin-right: 5px;
+              opacity: 1; }
+            .comment-box .comment-list li .comment__row:first-child .comment__col:first-child span:nth-child(2) {
+              opacity: 0.3; }
+
 .login-page {
   min-height: 92vh;
   padding: 60px 0;
