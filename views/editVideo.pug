@@ -2,14 +2,14 @@ extends ./layouts/main.pug
 
 block contents
     .editvideo-page
-        .editvideo.form-container
+        .form-container
             form(action=routes.editVideo(video._id), method="post")
                 input(type="text", name="title", placeholder="Title", value=video.title)
                 textarea(type="text", name="description" placeholder="description")=video.description
                 input(type="submit", value="EDIT VIDEO")
-        .del-btn
-            a(href=routes.deleteVideo(video._id))
-                button
-                    span
-                        i.fas.fa-trash-alt
-                    span DELETE VIDEO
+            .del-btn
+                a(href=routes.deleteVideo(video._id))
+                    button
+                        span
+                            i.fas.fa-trash-alt
+                        span DELETE VIDEO

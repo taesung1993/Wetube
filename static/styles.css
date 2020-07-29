@@ -1185,6 +1185,57 @@ footer {
       -o-object-fit: cover;
          object-fit: cover; }
 
+.editvideo-page {
+  min-height: 92vh;
+  padding: 60px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .editvideo-page .form-container {
+    width: 700px; }
+    .editvideo-page .form-container textarea {
+      height: 300px;
+      padding: 20px;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px; }
+  .editvideo-page .del-btn {
+    margin-top: 10px; }
+    .editvideo-page .del-btn button {
+      width: 100%;
+      padding: 10px 20px;
+      border: 1px solid #e9e9e9;
+      -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+              border-radius: 5px;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      background-color: #ff7575a1; }
+      .editvideo-page .del-btn button:hover {
+        background-color: #ff7675; }
+      .editvideo-page .del-btn button span:first-child {
+        margin-right: 5px; }
+
 .videoBlock .videoBlock__info {
   padding-top: 20px;
   display: -webkit-box;

@@ -1,0 +1,39 @@
+.editvideo-page {
+  min-height: 92vh;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form-container {
+    width: 700px;
+    textarea {
+      height: 300px;
+      padding: 20px;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+  }
+  .del-btn {
+    margin-top: 10px;
+    button {
+      width: 100%;
+      padding: 10px 20px;
+      border: 1px solid $lineColor;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      background-color: $googleBtnBefore;
+      &:hover {
+        background-color: $googleBtnAfter;
+      }
+      span {
+        &:first-child {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
