@@ -90,6 +90,7 @@ const handleVideoPlay = () => {
 const handleSpacebarPlay = (event) => {
   const icon = document.querySelector("#videoPlay i");
   if (event.keyCode == 32) {
+    event.preventDefault();
     if (videoPlayer.paused) {
       videoPlayer.play();
       icon.className = "fas fa-pause";
