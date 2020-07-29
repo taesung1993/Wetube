@@ -7,12 +7,13 @@
             span#commentNum #{video.comments.length}
             span Comment
     .comment__row
-        .comment__col
-            img(src=`/${loggedUser.avatarUrl}`)
-        .comment__col
-            form
-                textarea(id="inputComment",placeholder="Add Comment")
-                .textarea-line
+        if loggedUser !== null
+            .comment__col
+                img(src=`/${loggedUser.avatarUrl}`)
+            .comment__col
+                form
+                    textarea(id="inputComment",placeholder="Add Comment")
+                    .textarea-line
     ul.comment__row.comment-list
         li#newComment.comment.hidden
             .comment__col
@@ -23,6 +24,8 @@
                         span#commentCreator
                         span#commentDate
                     .comment__col
+                        span#commentMenuBtn.commentMenuBtn.hidden
+                            i.fas.fa-ellipsis-v
                 .comment__row
                     span#commentContent
         each comment in video.comments.reverse()
@@ -37,5 +40,8 @@
                                 span=comment.name
                             span #{comment.createdAt.toLocaleDateString()}
                         .comment__col
+                            .commentMenuBtn.hidden
+                                i.fas.fa-ellipsis-v
+                                .commentMenuBtn__effect
                     .comment__row
                         span=comment.content

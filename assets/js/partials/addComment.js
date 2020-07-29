@@ -48,8 +48,10 @@ const resetEnter = (event) => {
 };
 
 const init = () => {
-  inputComment.addEventListener("keydown", resetEnter);
-  inputComment.addEventListener("keyup", setTextareaHeight);
+  if (inputComment) {
+    inputComment.addEventListener("keydown", resetEnter);
+    inputComment.addEventListener("keyup", setTextareaHeight);
+  }
 };
 
 if (commentBox) {
