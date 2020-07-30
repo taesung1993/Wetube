@@ -51,7 +51,7 @@ const showSetMenu = (event) => {
   const hideMenubar = (e) => {
     e.stopImmediatePropagation();
     if (preMenubar !== null && isShowingMenubar) {
-      if (e.target !== preMenuBtn) {
+      if (!preMenuBtn.contains(e.target) && !preMenubar.contains(e.target)) {
         preMenubar.classList.add("hidden");
         preMenuBtn.classList.add("hidden");
         isShowingMenubar = false;
