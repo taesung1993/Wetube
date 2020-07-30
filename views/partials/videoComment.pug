@@ -17,18 +17,27 @@
     ul.comment__row.comment-list
         li#newComment.comment.hidden
             .comment__col
-                img#commentAvatar
+                a#fromAvatartoProfile(href="#")
+                    img#commentAvatar
             .comment__col
                 .comment__row
                     .comment__col
-                        span#commentCreator
+                        a#fromNamertoProfile(href="#")
+                            span#commentCreator
                         span#commentDate
                     .comment__col.commentMenuBtn-box
                         span#commentMenuBtn.commentMenuBtn.hidden
                             i.fas.fa-ellipsis-v
+                            .commentMenuBtn__effect
+                        ul.menubar.hidden
+                            li
+                                span.menubar__modify Modify
+                            a(href="/")
+                                li
+                                    span.menubar__delete Delete
                 .comment__row
                     .comment__row
-                        span.comment__content
+                        span#commentContent.comment__content
                     .comment__row.modify-comment-box.hidden
                         textarea.modify-comment.inputComment(placeholder="Add Comment")
                         .textarea-line
@@ -46,16 +55,17 @@
                             a(href=routes.userDetail(comment.creator))
                                 span=comment.name
                             span #{comment.createdAt.toLocaleDateString()}
-                        .comment__col.commentMenuBtn-box
-                            .commentMenuBtn.hidden
-                                i.fas.fa-ellipsis-v
-                                .commentMenuBtn__effect
-                            ul.menubar.hidden
-                                li
-                                    span.menubar__modify Modify
-                                a(href="/")
+                        if loggedUser !== null && loggedUser.id == comment.creator
+                            .comment__col.commentMenuBtn-box
+                                .commentMenuBtn.hidden
+                                    i.fas.fa-ellipsis-v
+                                    .commentMenuBtn__effect
+                                ul.menubar.hidden
                                     li
-                                        span.menubar__delete Delete
+                                        span.menubar__modify Modify
+                                    a(href="/")
+                                        li
+                                            span.menubar__delete Delete
                     .comment__row
                         .comment__row
                             span.comment__content=comment.content

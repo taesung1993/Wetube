@@ -1,6 +1,7 @@
 const commentList = document.querySelector(".comment-list");
 const comments = document.querySelectorAll("li.comment");
 const menuBtns = document.querySelectorAll(".commentMenuBtn");
+const newComment = document.getElementById("newComment");
 let isShowingMenubar = false;
 let preMenuBtn = null;
 let preMenubar = null;
@@ -64,7 +65,6 @@ const showSetMenu = (event) => {
   };
 
   const showModifyBox = (e) => {
-    e.stopImmediatePropagation();
     const textarea = modifyBox.querySelector("textarea");
     const cancelBtn = modifyBox.querySelector(".btn-cancel");
     menuBtnBox.classList.add("hidden");
@@ -118,7 +118,11 @@ const hideSetMenu = (event) => {
 
 if (commentList) {
   comments.forEach((comment) => {
-    comment.addEventListener("mouseover", showSetMenu);
-    comment.addEventListener("mouseleave", hideSetMenu);
+    const menuBtnBox = comment.querySelector(".commentMenuBtn-box");
+    if (menuBtnBox) {
+      comment.addEventListener("mouseover", showSetMenu);
+      comment.addEventListener("mouseleave", hideSetMenu);
+    }
   });
+  newComment.addEventListener("mouseover", showSetMenu);
 }

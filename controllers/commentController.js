@@ -29,6 +29,7 @@ export const addComment = async (req, res) => {
         creator: {
           name: req.user.name,
           avatar: req.user.avatarUrl,
+          id: req.user.id,
         },
         createdAt: newComment.createdAt,
         data: newComment.content,
