@@ -23,11 +23,18 @@
                     .comment__col
                         span#commentCreator
                         span#commentDate
-                    .comment__col
+                    .comment__col.commentMenuBtn-box
                         span#commentMenuBtn.commentMenuBtn.hidden
                             i.fas.fa-ellipsis-v
                 .comment__row
-                    span#commentContent
+                    .comment__row
+                        span.comment__content
+                    .comment__row.modify-comment-box.hidden
+                        textarea.modify-comment.inputComment(placeholder="Add Comment")
+                        .textarea-line
+                        .modify-btns
+                            span.btn-modify Modify
+                            span.btn-cancel Cancel
         each comment in video.comments.reverse()
             li.comment
                 .comment__col
@@ -39,7 +46,7 @@
                             a(href=routes.userDetail(comment.creator))
                                 span=comment.name
                             span #{comment.createdAt.toLocaleDateString()}
-                        .comment__col
+                        .comment__col.commentMenuBtn-box
                             .commentMenuBtn.hidden
                                 i.fas.fa-ellipsis-v
                                 .commentMenuBtn__effect

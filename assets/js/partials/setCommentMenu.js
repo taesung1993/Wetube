@@ -7,8 +7,9 @@ let preMenubar = null;
 
 const showSetMenu = (event) => {
   const comment = event.currentTarget;
-  const menuBtn = event.currentTarget.querySelector(".commentMenuBtn");
-  const menubar = event.currentTarget.querySelector(".menubar");
+  const menuBtnBox = comment.querySelector(".commentMenuBtn-box");
+  const menuBtn = comment.querySelector(".commentMenuBtn");
+  const menubar = comment.querySelector(".menubar");
   const menuBtnEffect = menuBtn.querySelector(".commentMenuBtn__effect");
   const modifyBtn = comment.querySelector(".menubar__modify");
   const modifyBox = comment.querySelector(".modify-comment-box");
@@ -66,15 +67,18 @@ const showSetMenu = (event) => {
     e.stopImmediatePropagation();
     const textarea = modifyBox.querySelector("textarea");
     const cancelBtn = modifyBox.querySelector(".btn-cancel");
-    preMenubar.classList.add("hidden");
-    preMenuBtn.classList.add("hidden");
+    menuBtnBox.classList.add("hidden");
     commentContent.classList.add("hidden");
     modifyBox.classList.remove("hidden");
+    preMenubar.classList.add("hidden");
+    preMenuBtn.classList.add("hidden");
+
     textarea.value = commentContent.textContent;
     isShowingMenubar = false;
 
     const hideModifyBox = () => {
       modifyBox.classList.add("hidden");
+      menuBtnBox.classList.remove("hidden");
       commentContent.classList.remove("hidden");
     };
 
