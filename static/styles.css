@@ -745,7 +745,8 @@ footer {
             -webkit-justify-content: flex-end;
                -moz-box-pack: end;
                 -ms-flex-pack: end;
-                    justify-content: flex-end; }
+                    justify-content: flex-end;
+            position: relative; }
             .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) .commentMenuBtn {
               width: 30px;
               height: 30px;
@@ -802,6 +803,24 @@ footer {
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } }
+            .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) ul.menubar {
+              width: 60px;
+              padding: 10px;
+              border: 1px solid #e9e9e9;
+              position: absolute;
+              top: 30px;
+              right: -40px;
+              background-color: white; }
+              .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) ul.menubar li {
+                margin-top: 0; }
+                .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) ul.menubar li:not(:last-child) {
+                  margin-bottom: 10px; }
+                .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) ul.menubar li span {
+                  font-size: 12px;
+                  font-weight: 400;
+                  cursor: pointer; }
+                  .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) ul.menubar li span:hover {
+                    opacity: 1; }
 
 .login-page {
   min-height: 92vh;
