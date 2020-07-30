@@ -2,6 +2,7 @@ import axios from "axios";
 
 const commentBox = document.querySelector(".comment-box");
 const inputComment = document.getElementById("inputComment");
+const updateComment = document.querySelector(".modify-comment.inputComment");
 
 const writeComment = async () => {
   const id = window.location.href.split("http://localhost:9000/video/")[1];
@@ -14,7 +15,6 @@ const writeComment = async () => {
     },
   });
 
-  console.log(res);
   if (res.data.success) {
     const commentInfo = res.data.data;
     const commentNum = document.getElementById("commentNum");
@@ -35,15 +35,19 @@ const writeComment = async () => {
 };
 
 const setTextareaHeight = (event) => {
-  inputComment.style.height = "35px";
-  inputComment.style.height = `${event.target.scrollHeight}px`;
+  event.currentTarget.style.height = "35px";
+  event.currentTarget.style.height = `${event.target.scrollHeight}px`;
 };
 
 const resetEnter = (event) => {
   if (!event.shiftKey && event.keyCode == 13) {
     event.preventDefault();
-    writeComment();
-    inputComment.value = "";
+    if (event.currentTarget === inputComment) {
+      writeComment();
+    } else if (event.currentTarget === updateComment) {
+      console.log("업데이트!");
+    }
+    event.currentTarget.value = "";
   }
 };
 
@@ -51,6 +55,10 @@ const init = () => {
   if (inputComment) {
     inputComment.addEventListener("keydown", resetEnter);
     inputComment.addEventListener("keyup", setTextareaHeight);
+  }
+  if (updateComment) {
+    updateComment.addEventListener("keydown", resetEnter);
+    updateComment.addEventListener("keyup", setTextareaHeight);
   }
 };
 

@@ -1,12 +1,23 @@
 .comment-box {
   width: 700px;
   margin: 0 auto;
+
+  @keyframes linespread {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
   .comment__row {
     width: 100%;
     display: flex;
     &:first-child {
       margin: 20px 0;
       span {
+        margin-right: 10px;
         font-size: 20px;
         font-weight: 600;
         opacity: 0.6;
@@ -45,21 +56,13 @@
             }
             &:focus + .textarea-line {
               background-color: $black;
-              animation: spread 0.5s forwards ease-in;
+              animation: linespread 0.5s forwards ease-in;
             }
           }
           .textarea-line {
             width: 100%;
             height: 1px;
             background-color: $lineColor;
-          }
-          @keyframes spread {
-            from {
-              width: 0;
-            }
-            to {
-              width: 100%;
-            }
           }
         }
       }
@@ -95,6 +98,7 @@
               display: flex;
               justify-content: flex-end;
               position: relative;
+
               .commentMenuBtn {
                 width: 30px;
                 height: 30px;
@@ -156,6 +160,57 @@
                     &:hover {
                       opacity: 1;
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &:last-child {
+          display: flex;
+          flex-direction: column;
+          .comment__row {
+            &:last-child {
+              textarea {
+                width: 100%;
+                height: 35px;
+                resize: none;
+                overflow-y: hidden;
+                font-size: 20px;
+                font-weight: 400;
+                letter-spacing: 2px;
+                background-color: $mainBg;
+                border: none;
+                &:focus {
+                  outline: none;
+                }
+                &:focus + .textarea-line {
+                  background-color: $black;
+                  animation: linespread 0.5s forwards ease-in;
+                }
+              }
+              .textarea-line {
+                margin: 0 auto;
+                width: 100%;
+                height: 1px;
+                background-color: $lineColor;
+              }
+              .modify-btns {
+                margin-top: 20px;
+                display: flex;
+                justify-content: flex-end;
+                span {
+                  margin-left: 10px;
+                  padding: 10px 20px;
+                  border-radius: 10px;
+                  background-color: #0fbaf98e;
+                  color: white;
+                  font-weight: 400;
+                  font-size: 18px;
+                  cursor: pointer;
+                  &:hover {
+                    background-color: #0fbaf9;
                   }
                 }
               }

@@ -12,7 +12,7 @@
                 img(src=`/${loggedUser.avatarUrl}`)
             .comment__col
                 form
-                    textarea(id="inputComment",placeholder="Add Comment")
+                    textarea(id="inputComment", class="inputComment", placeholder="Add Comment")
                     .textarea-line
     ul.comment__row.comment-list
         li#newComment.comment.hidden
@@ -44,11 +44,17 @@
                                 i.fas.fa-ellipsis-v
                                 .commentMenuBtn__effect
                             ul.menubar.hidden
+                                li
+                                    span.menubar__modify Modify
                                 a(href="/")
                                     li
-                                        span Modify
-                                a(href="/")
-                                    li
-                                        span Delete
+                                        span.menubar__delete Delete
                     .comment__row
-                        span=comment.content
+                        .comment__row
+                            span.comment__content=comment.content
+                        .comment__row.modify-comment-box.hidden
+                            textarea.modify-comment.inputComment(placeholder="Add Comment")
+                            .textarea-line
+                            .modify-btns
+                                span.btn-modify Modify
+                                span.btn-cancel Cancel

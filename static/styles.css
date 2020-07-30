@@ -598,6 +598,30 @@ footer {
 .comment-box {
   width: 700px;
   margin: 0 auto; }
+
+@-webkit-keyframes linespread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@-moz-keyframes linespread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@-o-keyframes linespread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@keyframes linespread {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
   .comment-box .comment__row {
     width: 100%;
     display: -webkit-box;
@@ -608,6 +632,7 @@ footer {
     .comment-box .comment__row:first-child {
       margin: 20px 0; }
       .comment-box .comment__row:first-child span {
+        margin-right: 10px;
         font-size: 20px;
         font-weight: 600;
         opacity: 0.6; }
@@ -657,38 +682,14 @@ footer {
             outline: none; }
           .comment-box .comment__row .comment__col:nth-child(2) form textarea:focus + .textarea-line {
             background-color: #2d3436;
-            -webkit-animation: spread 0.5s forwards ease-in;
-               -moz-animation: spread 0.5s forwards ease-in;
-                 -o-animation: spread 0.5s forwards ease-in;
-                    animation: spread 0.5s forwards ease-in; }
+            -webkit-animation: linespread 0.5s forwards ease-in;
+               -moz-animation: linespread 0.5s forwards ease-in;
+                 -o-animation: linespread 0.5s forwards ease-in;
+                    animation: linespread 0.5s forwards ease-in; }
         .comment-box .comment__row .comment__col:nth-child(2) form .textarea-line {
           width: 100%;
           height: 1px;
           background-color: #e9e9e9; }
-
-@-webkit-keyframes spread {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
-
-@-moz-keyframes spread {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
-
-@-o-keyframes spread {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
-
-@keyframes spread {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
   .comment-box .comment-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -786,6 +787,52 @@ footer {
                         border-radius: 50%;
                 z-index: 1; }
 
+@-webkit-keyframes spread {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: #2d3436a1;
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.8); }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: #2d343618;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } }
+
+@-moz-keyframes spread {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: #2d3436a1;
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+         box-shadow: 0 0 0 rgba(0, 0, 0, 0.8); }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: #2d343618;
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } }
+
+@-o-keyframes spread {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: #2d3436a1;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.8); }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: #2d343618;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } }
+
 @keyframes spread {
   from {
     width: 0;
@@ -821,6 +868,67 @@ footer {
                   cursor: pointer; }
                   .comment-box .comment-list li .comment__row:first-child .comment__col:nth-child(2) ul.menubar li span:hover {
                     opacity: 1; }
+        .comment-box .comment-list li .comment__row:last-child {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+             -moz-box-orient: vertical;
+             -moz-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; }
+          .comment-box .comment-list li .comment__row:last-child .comment__row:last-child textarea {
+            width: 100%;
+            height: 35px;
+            resize: none;
+            overflow-y: hidden;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            background-color: #f9f9f9;
+            border: none; }
+            .comment-box .comment-list li .comment__row:last-child .comment__row:last-child textarea:focus {
+              outline: none; }
+            .comment-box .comment-list li .comment__row:last-child .comment__row:last-child textarea:focus + .textarea-line {
+              background-color: #2d3436;
+              -webkit-animation: linespread 0.5s forwards ease-in;
+                 -moz-animation: linespread 0.5s forwards ease-in;
+                   -o-animation: linespread 0.5s forwards ease-in;
+                      animation: linespread 0.5s forwards ease-in; }
+          .comment-box .comment-list li .comment__row:last-child .comment__row:last-child .textarea-line {
+            margin: 0 auto;
+            width: 100%;
+            height: 1px;
+            background-color: #e9e9e9; }
+          .comment-box .comment-list li .comment__row:last-child .comment__row:last-child .modify-btns {
+            margin-top: 20px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+               -moz-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end; }
+            .comment-box .comment-list li .comment__row:last-child .comment__row:last-child .modify-btns span {
+              margin-left: 10px;
+              padding: 10px 20px;
+              -webkit-border-radius: 10px;
+                 -moz-border-radius: 10px;
+                      border-radius: 10px;
+              background-color: #0fbaf98e;
+              color: white;
+              font-weight: 400;
+              font-size: 18px;
+              cursor: pointer; }
+              .comment-box .comment-list li .comment__row:last-child .comment__row:last-child .modify-btns span:hover {
+                background-color: #0fbaf9; }
 
 .login-page {
   min-height: 92vh;

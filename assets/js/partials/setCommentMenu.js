@@ -10,6 +10,9 @@ const showSetMenu = (event) => {
   const menuBtn = event.currentTarget.querySelector(".commentMenuBtn");
   const menubar = event.currentTarget.querySelector(".menubar");
   const menuBtnEffect = menuBtn.querySelector(".commentMenuBtn__effect");
+  const modifyBtn = comment.querySelector(".menubar__modify");
+  const modifyBox = comment.querySelector(".modify-comment-box");
+  const commentContent = comment.querySelector(".comment__content");
 
   const showMenubar = (e) => {
     e.stopImmediatePropagation();
@@ -59,11 +62,32 @@ const showSetMenu = (event) => {
     }
   };
 
+  const showModifyBox = (e) => {
+    e.stopImmediatePropagation();
+    const textarea = modifyBox.querySelector("textarea");
+    const cancelBtn = modifyBox.querySelector(".btn-cancel");
+    preMenubar.classList.add("hidden");
+    preMenuBtn.classList.add("hidden");
+    commentContent.classList.add("hidden");
+    modifyBox.classList.remove("hidden");
+    textarea.value = commentContent.textContent;
+    isShowingMenubar = false;
+
+    const hideModifyBox = () => {
+      modifyBox.classList.add("hidden");
+      commentContent.classList.remove("hidden");
+    };
+
+    cancelBtn.addEventListener("click", hideModifyBox);
+  };
+
   menuBtn.classList.remove("hidden");
   document.body.addEventListener("mousedown", hideMenubar);
   menuBtn.addEventListener("mousedown", unsetAnimation);
   menuBtn.addEventListener("mouseleave", unsetAnimation);
   menuBtn.addEventListener("mouseup", showMenubar);
+
+  modifyBtn.addEventListener("click", showModifyBox);
 };
 
 const hideSetMenu = (event) => {
