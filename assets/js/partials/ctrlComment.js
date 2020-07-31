@@ -5,15 +5,61 @@ const inputComment = document.getElementById("inputComment");
 const updateComments = document.querySelectorAll(
   ".modify-comment.inputComment"
 );
+const deleteBtns = document.querySelectorAll(".menubar__delete");
+const commentNum = document.getElementById("commentNum");
 
 let isUpdating = false;
 let preTextarea = null;
 
-const updateComment = async (textarea) => {
+const deleteComment = async (event) => {
+  const commentId = event.path[6].id;
+  const videoId = window.location.href.split("http://localhost:9000/video/")[1];
+  const commentList = event.path[7];
+  const comment = event.path[6];
+
+  const res = await axios(`/api/video/${videoId}/comment`, {
+    method: "DELETE",
+    data: {
+      success: true,
+      commentId,
+      videoId,
+    },
+  });
+  const isSuccess = res.data.success;
+
+  if (isSuccess) {
+    // 댓글 수 1 감소
+    commentNum.textContent = commentNum.textContent * 1 - 1;
+    commentList.removeChild(comment);
+  }
+};
+
+const updateComment = async (
+  textarea,
+  commentId,
+  modifyBox,
+  commentContent,
+  modifyBtnBox
+) => {
   // update 작업 axious 이용할 것!
   const id = window.location.href.split("http://localhost:9000/video/")[1];
-  console.log(textarea.value);
+  const changeValue = textarea.value;
   textarea.value = "";
+  const res = await axios(`/api/video/${id}/comment`, {
+    method: "PUT",
+    data: {
+      success: true,
+      msg: changeValue,
+      commentId: commentId,
+    },
+  });
+  const resData = res.data;
+  if (resData.success) {
+    commentContent.textContent = resData.data;
+    modifyBox.classList.add("hidden");
+    commentContent.classList.remove("hidden");
+    modifyBtnBox.classList.remove("hidden");
+  }
 };
 
 const writeComment = async () => {
@@ -45,6 +91,7 @@ const writeComment = async () => {
     commentNum.innerText = commentNum.innerText * 1 + 1;
     avatarLink.href = `/user/${commentInfo.creator.id}`;
     nameLink.href = `/user/${commentInfo.creator.id}`;
+    newComment.id = commentInfo.id;
 
     newComment.classList.remove("hidden");
   }
@@ -57,8 +104,12 @@ const setTextareaHeight = (event) => {
 
 const resetEnter = (event) => {
   const textarea = event.currentTarget;
+  const modifyBox = event.path[1];
   const modifyBtn = event.path[1].querySelector(".btn-modify");
   const cancelBtn = event.path[1].querySelector(".btn-cancel");
+  const commentContent = event.path[2].querySelector(".comment__content");
+  const modifyBtnBox = event.path[3].querySelector(".commentMenuBtn-box");
+  const commentId = event.path[4].id;
 
   if (!isUpdating) {
     preTextarea = textarea.value;
@@ -67,8 +118,18 @@ const resetEnter = (event) => {
 
   const goUpdateComment = (event) => {
     event.stopImmediatePropagation();
-    updateComment(textarea);
-    isUpdating = false;
+    if (preTextarea !== textarea.value) {
+      updateComment(
+        textarea,
+        commentId,
+        modifyBox,
+        commentContent,
+        modifyBtnBox
+      );
+      isUpdating = false;
+    } else {
+      textarea.focus();
+    }
   };
 
   const cancelUpdate = () => {
@@ -79,17 +140,26 @@ const resetEnter = (event) => {
     event.preventDefault();
     if (textarea === inputComment) {
       writeComment();
+      event.currentTarget.value = "";
     } else if (textarea.className === "modify-comment inputComment") {
       if (preTextarea === textarea.value) {
         textarea.focus();
       } else {
-        updateComment(textarea);
+        updateComment(
+          textarea,
+          commentId,
+          modifyBox,
+          commentContent,
+          modifyBtnBox
+        );
         isUpdating = false;
       }
     }
   } else {
-    modifyBtn.addEventListener("click", goUpdateComment);
-    cancelBtn.addEventListener("click", cancelUpdate);
+    if (modifyBtn) {
+      modifyBtn.addEventListener("click", goUpdateComment);
+      cancelBtn.addEventListener("click", cancelUpdate);
+    }
   }
 };
 
@@ -102,6 +172,11 @@ const init = () => {
     updateComments.forEach((updateComment) => {
       updateComment.addEventListener("keydown", resetEnter);
       updateComment.addEventListener("keyup", setTextareaHeight);
+    });
+  }
+  if (deleteBtns) {
+    deleteBtns.forEach((deleteBtn) => {
+      deleteBtn.addEventListener("click", deleteComment);
     });
   }
 };
