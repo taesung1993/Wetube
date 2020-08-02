@@ -32,6 +32,9 @@ const GOOGLE_CB = "/auth/google/callback";
 
 // api
 const API = "/api";
+const API_VIDEO_VIEW = "/video/:id/view";
+const API_VIDEO_LIKE = "/video/:id/like";
+const API_VIDEO_UNLIKE = "/video/:id/unlike";
 const API_VIDEO_COMMENT = "/video/:id/comment";
 
 const routes = {
@@ -68,6 +71,9 @@ const routes = {
   googleCb: GOOGLE_CB,
   api: API,
   apiVideoComment: API_VIDEO_COMMENT,
+  apiVideoView: API_VIDEO_VIEW,
+  apiVideoLike: API_VIDEO_LIKE,
+  apiVideoUnlike: API_VIDEO_UNLIKE,
 };
 
 export default routes;
