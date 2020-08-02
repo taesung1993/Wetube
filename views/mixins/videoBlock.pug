@@ -9,4 +9,7 @@ mixin videoBlock(video={})
                     .videoBlock__row=video.title
                     .videoBlock__row
                         span=video.creatorName
-                        span view: #{video.view}
+                        if video.view <= 1
+                            span #{video.view} view
+                        else
+                            span #{video.view} views
