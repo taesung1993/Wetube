@@ -30,16 +30,40 @@ block contents
                 span=video.title
             .videoDetail__row
                 .videoDetail__col
-                    span Views
-                    span=video.view
+                    if video.view <= 1
+                        span#videoDetailView #{video.view} view
+                    else
+                        span#videoDetailView #{video.view} views
                     span •
                     span #{video.createdAt.toLocaleDateString()}
                 .videoDetail__col
-                    .thumbs-box 
-                        span#videolike
-                            i.fas.fa-thumbs-up
-                        span#videohate
-                            i.fas.fa-thumbs-down
+                    .thumbs-box
+                        if loggedUser
+                            if isSelectedLike 
+                                #videolike.selected
+                                    i.fas.fa-thumbs-up
+                                    span#likeNum=video.likes.length
+                            else
+                                #videolike
+                                    i.fas.fa-thumbs-up
+                                    span#likeNum=video.likes.length
+                            if isSelectedUnlike
+                                #videohate.selected
+                                    i.fas.fa-thumbs-down
+                                    span#unlikeNum=video.unlikes.length
+                            else
+                                #videohate
+                                    i.fas.fa-thumbs-down
+                                    span#unlikeNum=video.unlikes.length                                
+                        else
+                            a.thumb-Box__needlogin(href=routes.login)
+                                span#videolike
+                                    i.fas.fa-thumbs-up
+                                    span#likeNum=video.likes.length
+                                span#videohate
+                                    i.fas.fa-thumbs-down
+                                    span#unlikeNum=video.unlikes.length                                
+
                     if loggedUser !== null && loggedUser.id === video.creator.id
                         a(href=routes.editVideo(video.id))
                             span#editVideoBtn Edit Video

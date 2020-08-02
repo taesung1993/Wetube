@@ -27,11 +27,13 @@
       }
 
       &:last-child {
-        padding: 30px 0;
+        padding: 15px 0;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .videoDetail__col {
+          width: 100%;
           &:first-child {
             font-size: 18px;
             span {
@@ -49,36 +51,60 @@
 
           &:nth-child(2) {
             display: flex;
-            #videolike,
-            #videohate {
-              margin-left: 10px;
-              padding: 15px;
-              font-size: 20px;
-              cursor: pointer;
-              i {
-                margin: 0 auto;
-                opacity: 0.5;
-              }
-              &:hover {
-                background-color: rgba(0, 0, 0, 0.055);
-              }
-            }
-            #videohate {
-              i {
-                transform: rotateY(180deg);
-              }
-            }
-            #editVideoBtn {
-              padding: 5px 10px;
-              margin-left: 10px;
-              background-color: #6c5ce7;
-              border-radius: 5px;
-              font-size: 20px;
-              color: white;
-              font-weight: 600;
+            justify-content: flex-end;
+            .thumbs-box {
+              display: flex;
 
-              &:hover {
-                opacity: 0.7;
+              .selected {
+                color: #0984e3;
+              }
+
+              #videolike,
+              #videohate {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-left: 10px;
+                font-size: 20px;
+                padding: 5px;
+                cursor: pointer;
+                i {
+                  margin: 0 auto;
+                  opacity: 0.5;
+                }
+                #likeNum,
+                #unlikeNum {
+                  margin-top: 5px;
+                  display: block;
+                  font-size: 13px;
+                  text-align: center;
+                }
+                &:hover {
+                  background-color: rgba(0, 0, 0, 0.055);
+                }
+              }
+              #videohate {
+                i {
+                  transform: rotateY(180deg);
+                }
+              }
+            }
+            a {
+              display: flex;
+              align-items: center;
+              #editVideoBtn {
+                padding: 5px 10px;
+                margin-left: 10px;
+                background-color: #6c5ce7;
+                border-radius: 5px;
+                font-size: 20px;
+                color: white;
+                font-weight: 600;
+
+                &:hover {
+                  opacity: 0.7;
+                }
               }
             }
           }
