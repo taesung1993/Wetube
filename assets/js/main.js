@@ -1,4 +1,5 @@
 import "../scss/styles.scss";
+import "./pages/videoDetail";
 import "./pages/editProfile";
 import "./partials/videoPlayer.js";
 import "./partials/ctrlComment.js";
