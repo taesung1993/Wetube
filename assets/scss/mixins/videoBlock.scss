@@ -16,12 +16,13 @@
         &:first-child {
           max-height: 50px;
           margin-bottom: 10px;
-          font-size: 18px;
+          font-size: 1.8rem;
           font-weight: 400;
         }
         &:last-child {
           span {
             display: block;
+            font-size: 1.6rem;
           }
         }
       }
