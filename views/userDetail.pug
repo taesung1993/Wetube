@@ -4,9 +4,27 @@ block contents
     .userDetail-page
         .userDetail__header
             .userDetail__col
-                img(src=`/${me.avatarUrl}`)
-                span=me.name
+                .userDetail__col
+                    img(src=`/${me.avatarUrl}`)
+                .userDetail__col
+                    .userDetail__row
+                        span=me.name
+                    .userDetail__row
+                        if me.followers.length === 0
+                            span.followerNum No follower
+                            span.followerText 
+                        else if me.followers.length === 1
+                            span.followerNum=me.followers.length
+                            span.followerText Follower
+                        else
+                            span.followerNum=me.followers.length
+                            span.followerText Followers  
             .userDetail__col
+                if loggedUser !== null && loggedUser.id !== me.id
+                    .followBtn
+                        span.icon
+                            i.fas.fa-bell
+                        span.btn Follow
                 if loggedUser !== null && loggedUser.id === me.id
                     a(href=routes.editProfile(me._id))
                         button

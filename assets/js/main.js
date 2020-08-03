@@ -4,6 +4,7 @@ import "./pages/editProfile";
 import "./partials/videoPlayer.js";
 import "./partials/ctrlComment.js";
 import "./partials/setCommentMenu.js";
+import "./partials/followCtrl.js";
 
 window.onpageshow = (event) => {
   if (event.persited || window.performance.navigation.type === 2) {

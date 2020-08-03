@@ -37,6 +37,9 @@ const API_VIDEO_LIKE = "/video/:id/like";
 const API_VIDEO_UNLIKE = "/video/:id/unlike";
 const API_VIDEO_COMMENT = "/video/:id/comment";
 
+const API_USER_FOLLOW = "/user/:id/follow";
+const API_USER_UNFOLLOW = "/user/:id/unfollow";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -74,6 +77,8 @@ const routes = {
   apiVideoView: API_VIDEO_VIEW,
   apiVideoLike: API_VIDEO_LIKE,
   apiVideoUnlike: API_VIDEO_UNLIKE,
+  apiUserFollow: API_USER_FOLLOW,
+  apiUserUnfollow: API_USER_UNFOLLOW,
 };
 
 export default routes;

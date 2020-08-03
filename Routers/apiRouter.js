@@ -9,6 +9,9 @@ import {
   postView,
   postVideoLike,
   postVideoUnlike,
+  incrementUserFollow,
+  decrementUserFollow,
+  isFollowed,
 } from "../controllers/videoController";
 
 export const apiRouter = express.Router();
@@ -24,3 +27,8 @@ apiRouter.post(routes.apiVideoView, postView);
 // related to video like
 apiRouter.post(routes.apiVideoLike, postVideoLike);
 apiRouter.post(routes.apiVideoUnlike, postVideoUnlike);
+
+// related to user following
+apiRouter.post(routes.apiUserFollow, isFollowed);
+apiRouter.put(routes.apiUserFollow, incrementUserFollow);
+apiRouter.delete(routes.apiUserFollow, decrementUserFollow);

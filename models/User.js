@@ -32,6 +32,12 @@ const userSchema = new mongoose.Schema({
       ref: "Videos",
     },
   ],
+  followers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
+    },
+  ],
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });

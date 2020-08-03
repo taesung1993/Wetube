@@ -69,12 +69,29 @@ block contents
                             span#editVideoBtn Edit Video
         .videoDetail__main
             .videoDetail__col
-                a(href=routes.userDetail(video.creator.id))
+                a.go-profile-link(href=routes.userDetail(video.creator.id))
                     img(src=`/${video.creator.avatarUrl}`)
             .videoDetail__col
                 .videoDetail__row
-                    a(href=routes.userDetail(video.creator.id))
-                        span=video.creator.name
+                    .videoDetail__col
+                        a(href=routes.userDetail(video.creator.id))
+                            div=video.creator.name
+                                div
+                                    if video.creator.followers.length === 0
+                                        span.followerNum No follower
+                                        span.followerText 
+                                    else if video.creator.followers.length === 1
+                                        span.followerNum=video.creator.followers.length
+                                        span.followerText Follower
+                                    else
+                                        span.followerNum=video.creator.followers.length
+                                        span.followerText Followers                                  
+                    .videoDetail__col
+                        if loggedUser !== null
+                            .followBtn
+                                span.icon
+                                    i.fas.fa-bell
+                                span.btn Follow
                 .videoDetail__row
                     p.videoDetail__description=video.description
         include ./partials/videoComment
