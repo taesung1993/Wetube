@@ -24,13 +24,5 @@
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    grid-auto-rows: minmax(280px, 0.86fr);
-
-    .videoBlock {
-      video {
-        width: 100%;
-        object-fit: cover;
-      }
-    }
   }
 }
