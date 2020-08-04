@@ -1653,9 +1653,23 @@ footer {
           display: flex; }
           .videoDetail-page .videoDetail__col:last-child #nextVideo a .nextVideo__col:first-child {
             margin-right: 5px; }
-            .videoDetail-page .videoDetail__col:last-child #nextVideo a .nextVideo__col:first-child video {
+            .videoDetail-page .videoDetail__col:last-child #nextVideo a .nextVideo__col:first-child .nextVideo__video-container {
               width: 17rem;
+              overflow: hidden;
+              height: 0;
+              padding-top: -webkit-calc(17rem / 16 * 9);
+              padding-top: -moz-calc(17rem / 16 * 9);
+              padding-top: calc(17rem / 16 * 9);
+              position: relative;
               background-color: #2d3436; }
+              .videoDetail-page .videoDetail__col:last-child #nextVideo a .nextVideo__col:first-child .nextVideo__video-container video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                   object-fit: cover; }
           .videoDetail-page .videoDetail__col:last-child #nextVideo a .nextVideo__col:last-child {
             width: 100%; }
             .videoDetail-page .videoDetail__col:last-child #nextVideo a .nextVideo__col:last-child .nextVideo__row:not(:last-child) {
