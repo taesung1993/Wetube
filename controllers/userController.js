@@ -1,5 +1,6 @@
 import routes from "../routes";
 import User from "../models/User";
+import Video from "../models/Video";
 
 export const meDetail = (req, res) => {
   res.render("userDetail", { pageTitle: "USER DETAIL", me: req.user });
@@ -65,5 +66,40 @@ export const postChangePassword = async (req, res) => {
     console.log(error);
     res.status(400);
     res.redirect(routes.changePassword(_id));
+  }
+};
+
+export const importUserVideos = async (req, res) => {
+  const {
+    body: { success, videoId, creatorId },
+  } = req;
+  try {
+    if (success === false) throw "the req is failed.";
+
+    const videos = await Video.find()
+      .where("creator")
+      .equals(creatorId)
+      .populate("creator");
+    const currentVideoIdx = videos.findIndex((video) => video.id == videoId);
+
+    //  next 비디오 조건
+    // 현재 비디오 다음에 비디오가 존재할 때 -> 다음 비디오가 된다.
+    // 현재 비디오가 마지막 비디오일 때 -> 다음 비디오는 처음 비디오가 된다.
+
+    const nextVideo =
+      currentVideoIdx == videos.length - 1
+        ? videos[0]
+        : videos[currentVideoIdx + 1];
+
+    res.json({
+      success: true,
+      nextVideo,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error,
+    });
   }
 };

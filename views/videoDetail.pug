@@ -2,98 +2,116 @@ extends ./layouts/main.pug
 
 block contents
     .videoDetail-page
-        .videoDetail__videoPlayer(ondragstart="return false", onselectstart="return false")
-            video(src=`/${video.videoFile}`)
-            .videoPlayer__control-bar.hidden
-                .videoPlayer__col
-                    span#videoPlay
-                        i.fas.fa-play
-                    span#currentTime 00:00:00
-                    span.slash /
-                    span#endTime 00:00:00
-                .videoPlayer__col
-                    .progress-bar
-                        .progress-bar__track
-                                .current-rate
-                                    #currentRateBtn
-                .videoPlayer__col
-                    .volume-control.hidden
-                            .volume-bar__track
-                                .current-rate
-                                    #volumeCtrlBtn
-                    span#volumeCtrl
-                        i.fas.fa-volume-up
-                    span#screenSizeCtrl
-                        i.fas.fa-expand
-        .videoDetail__header
-            .videoDetail__row
-                span=video.title
-            .videoDetail__row
-                .videoDetail__col
-                    if video.view <= 1
-                        span#videoDetailView #{video.view} view
-                    else
-                        span#videoDetailView #{video.view} views
-                    span •
-                    span #{video.createdAt.toLocaleDateString()}
-                .videoDetail__col
-                    .thumbs-box
-                        if loggedUser
-                            if isSelectedLike 
-                                #videolike.selected
-                                    i.fas.fa-thumbs-up
-                                    span#likeNum=video.likes.length
-                            else
-                                #videolike
-                                    i.fas.fa-thumbs-up
-                                    span#likeNum=video.likes.length
-                            if isSelectedUnlike
-                                #videohate.selected
-                                    i.fas.fa-thumbs-down
-                                    span#unlikeNum=video.unlikes.length
-                            else
-                                #videohate
-                                    i.fas.fa-thumbs-down
-                                    span#unlikeNum=video.unlikes.length                                
-                        else
-                            a.thumb-Box__needlogin(href=routes.login)
-                                span#videolike
-                                    i.fas.fa-thumbs-up
-                                    span#likeNum=video.likes.length
-                                span#videohate
-                                    i.fas.fa-thumbs-down
-                                    span#unlikeNum=video.unlikes.length                                
-
+        .videoDetail__col
+            .videoDetail__videoPlayer(ondragstart="return false", onselectstart="return false")
+                video(src=`/${video.videoFile}`)
+                .videoPlayer__control-bar.hidden
+                    .videoPlayer__col
+                        span#videoPlay
+                            i.fas.fa-play
+                        span#currentTime 00:00:00
+                        span.slash /
+                        span#endTime 00:00:00
+                    .videoPlayer__col
+                        .progress-bar
+                            .progress-bar__track
+                                    .current-rate
+                                        #currentRateBtn
+                    .videoPlayer__col
+                        .volume-control.hidden
+                                .volume-bar__track
+                                    .current-rate
+                                        #volumeCtrlBtn
+                        span#volumeCtrl
+                            i.fas.fa-volume-up
+                        span#screenSizeCtrl
+                            i.fas.fa-expand
+            .videoDetail__header
+                .videoDetail__row
+                    span=video.title
                     if loggedUser !== null && loggedUser.id === video.creator.id
                         a(href=routes.editVideo(video.id))
                             span#editVideoBtn Edit Video
-        .videoDetail__main
-            .videoDetail__col
-                a.go-profile-link(href=routes.userDetail(video.creator.id))
-                    img(src=`/${video.creator.avatarUrl}`)
-            .videoDetail__col
                 .videoDetail__row
                     .videoDetail__col
-                        a(href=routes.userDetail(video.creator.id))
-                            div=video.creator.name
-                                div
-                                    if video.creator.followers.length === 0
-                                        span.followerNum No follower
-                                        span.followerText 
-                                    else if video.creator.followers.length === 1
-                                        span.followerNum=video.creator.followers.length
-                                        span.followerText Follower
-                                    else
-                                        span.followerNum=video.creator.followers.length
-                                        span.followerText Followers                                  
+                        if video.view <= 1
+                            span#videoDetailView #{video.view} view
+                        else
+                            span#videoDetailView #{video.view} views
+                        span •
+                        span #{video.createdAt.toLocaleDateString()}
                     .videoDetail__col
-                        if loggedUser !== null
-                            .followBtn
-                                span.icon
-                                    i.fas.fa-bell
-                                span.btn Follow
-                .videoDetail__row
-                    p.videoDetail__description=video.description
-        include ./partials/videoComment
+                        .thumbs-box
+                            if loggedUser
+                                if isSelectedLike 
+                                    #videolike.selected
+                                        i.fas.fa-thumbs-up
+                                        span#likeNum=video.likes.length
+                                else
+                                    #videolike
+                                        i.fas.fa-thumbs-up
+                                        span#likeNum=video.likes.length
+                                if isSelectedUnlike
+                                    #videohate.selected
+                                        i.fas.fa-thumbs-down
+                                        span#unlikeNum=video.unlikes.length
+                                else
+                                    #videohate
+                                        i.fas.fa-thumbs-down
+                                        span#unlikeNum=video.unlikes.length                                
+                            else
+                                a.thumb-Box__needlogin(href=routes.login)
+                                    span#videolike
+                                        i.fas.fa-thumbs-up
+                                        span#likeNum=video.likes.length
+                                    span#videohate
+                                        i.fas.fa-thumbs-down
+                                        span#unlikeNum=video.unlikes.length                                
+            .videoDetail__main
+                .videoDetail-main__col
+                    a.go-profile-link(href=routes.userDetail(video.creator.id))
+                        img(src=`/${video.creator.avatarUrl}`)
+                .videoDetail-main__col
+                    .videoDetail__row
+                        .videoDetail__col
+                            a(href=routes.userDetail(video.creator.id))
+                                div=video.creator.name
+                                    div
+                                        if video.creator.followers.length === 0
+                                            span.followerNum No follower
+                                            span.followerText 
+                                        else if video.creator.followers.length === 1
+                                            span.followerNum=video.creator.followers.length
+                                            span.followerText Follower
+                                        else
+                                            span.followerNum=video.creator.followers.length
+                                            span.followerText Followers                                  
+                        .videoDetail__col
+                            if loggedUser !== null && loggedUser.id != video.creator.id
+                                .followBtn
+                                    span.icon
+                                        i.fas.fa-bell
+                                    span.btn Follow
+                    .videoDetail__row
+                        p.videoDetail__description=video.description
+            include ./partials/videoComment
+        .videoDetail__col.creator-video
+            .creator-video__title-bar
+                h3 Next Video
+            #nextVideo
+                a(href="#")
+                    .nextVideo__col
+                        video
+                    .nextVideo__col
+                        .nextVideo__row
+                            span.title
+                        .nextVideo__row
+                            span.creator
+                        .nextVideo__row
+                            span.view
+                            span.date
+
+            
+    
 
 

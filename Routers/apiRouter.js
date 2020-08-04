@@ -13,6 +13,7 @@ import {
   decrementUserFollow,
   isFollowed,
 } from "../controllers/videoController";
+import { importUserVideos } from "../controllers/userController";
 
 export const apiRouter = express.Router();
 
@@ -32,3 +33,6 @@ apiRouter.post(routes.apiVideoUnlike, postVideoUnlike);
 apiRouter.post(routes.apiUserFollow, isFollowed);
 apiRouter.put(routes.apiUserFollow, incrementUserFollow);
 apiRouter.delete(routes.apiUserFollow, decrementUserFollow);
+
+// related to importing  video in video detail page
+apiRouter.post(routes.apiUsersVideo, importUserVideos);
