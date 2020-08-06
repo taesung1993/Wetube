@@ -112,12 +112,11 @@ export const importUserVideos = async (req, res) => {
     relatedVideos =
       nextVideo._id == videoId ? relatedVideos : [nextVideo, ...relatedVideos];
 
-    console.log(relatedVideos);
-
     res.json({
       success: true,
       nextVideo,
-      relatedVideos: relatedVideos[0],
+      relatedVideos, // undefined 전달 됨
+      //relatedVideos[0] => undeifned 전달 안됨,
     });
   } catch (error) {
     console.log(error);

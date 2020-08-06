@@ -147,39 +147,43 @@ if (isVideoDetail) {
   };
 
   const registerVideo = (videoData, ul) => {
-    const li = document.createElement("li").classList.add("relatedVideo");
+    const li = document.createElement("li");
     const a = document.createElement("a");
 
-    const col1 = document
-      .createElement("div")
-      .classList.add("relatedVideo__col");
-    const videoContainer = document
-      .createElement("div")
-      .classList.add("relatedVideo__video-container");
+    const col1 = document.createElement("div");
+    const videoContainer = document.createElement("div");
     const video = document.createElement("video");
 
-    const col2 = document
-      .createElement("div")
-      .classList.add("relatedVideo__col");
-    const row1 = document
-      .createElement("div")
-      .classList.add("relatedVideo__row");
-    const title = document.createElement("span").classList.add("title");
-    const row2 = document
-      .createElement("div")
-      .classList.add("relatedVideo__row");
-    const creator = document.createElement("span").classList.add("creator");
-    const row3 = document
-      .createElement("div")
-      .classList.add("relatedVideo__row");
-    const view = document.createElement("span").classList.add("view");
-    const date = document.createElement("span").classList.add("date");
+    const col2 = document.createElement("div");
+    const row1 = document.createElement("div");
+    const title = document.createElement("span");
+    const row2 = document.createElement("div");
+    const creator = document.createElement("span");
+    const row3 = document.createElement("div");
+    const view = document.createElement("span");
+    const date = document.createElement("span");
+
+    li.className = "relatedVideo";
+    col1.className = "relatedVideo__col";
+    videoContainer.className = "relatedVideo__video-container";
+    title.className = "title";
+
+    col2.className = "relatedVideo__col";
+    row1.className = "relatedVideo__row";
+    row2.className = "relatedVideo__row";
+    creator.className = "creator";
+    row3.className = "relatedVideo__row";
+    view.className = "view";
+    date.className = "date";
 
     a.href = `/video/${videoData._id}`;
     video.src = `/${videoData.videoFile}`;
     title.textContent = videoData.title;
+    view.textContent =
+      videoData.view * 1 < 1
+        ? `${videoData.view} view`
+        : `${videoData.view} views`;
     creator.textContent = videoData.creator.name;
-    view.textContent = videoData.view;
     date.textContent = videoData.createdAt.substring(0, 10);
 
     row3.appendChild(view);
@@ -191,7 +195,7 @@ if (isVideoDetail) {
     col2.appendChild(row3);
 
     videoContainer.appendChild(video);
-    col1.appendChild(videoContaiiner);
+    col1.appendChild(videoContainer);
 
     a.appendChild(col1);
     a.appendChild(col2);
@@ -202,16 +206,18 @@ if (isVideoDetail) {
   const importRelatedVideos = (relatedVideos) => {
     const ul = document.getElementById("relatedVideos");
 
-    console.log(relatedVideos);
+    if (!relatedVideos) return;
+    // relatedVideos 확인
 
     while (relatedVideos.length) {
       const roll = Math.floor(Math.random() * relatedVideos.length);
-      const lastIdx = relatedVideos.length;
+      const lastIdx = relatedVideos.length - 1;
       const temp = relatedVideos[roll];
       relatedVideos[roll] = relatedVideos[lastIdx];
       relatedVideos[lastIdx] = temp;
 
-      registerVideo(relatedVideos.pop(), ul);
+      const relatedVideo = relatedVideos.pop();
+      registerVideo(relatedVideo, ul);
     }
   };
 
@@ -238,10 +244,10 @@ if (isVideoDetail) {
     const isSuccess = res.data.success;
 
     if (isSuccess) {
-      const videoData = await res.data;
-      console.log(res);
-      importNextVideos(videoData.nextVideo);
-      importRelatedVideos(videoData.relatedVideos);
+      const { nextVideo, relatedVideos } = res.data;
+      importNextVideos(nextVideo);
+      // importRelatedVideos 호출
+      relatedVideos && importRelatedVideos(relatedVideos);
     } else {
       console.log(res);
     }

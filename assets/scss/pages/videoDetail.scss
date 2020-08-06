@@ -206,7 +206,7 @@
           display: flex;
           .nextVideo__col {
             &:first-child {
-              margin-right: 5px;
+              margin-right: 10px;
               .nextVideo__video-container {
                 width: 17rem;
                 overflow: hidden;
@@ -214,6 +214,7 @@
                 padding-top: calc(17rem / 16 * 9);
                 position: relative;
                 background-color: $black;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
                 video {
                   position: absolute;
                   top: 0;
@@ -255,13 +256,14 @@
       }
       #relatedVideos {
         li {
-          padding: 10px 0;
+          padding: 20px 0;
           a {
             display: block;
             display: flex;
 
             .relatedVideo__col {
               &:first-child {
+                margin-right: 10px;
                 .relatedVideo__video-container {
                   width: 17rem;
                   overflow: hidden;
@@ -269,6 +271,7 @@
                   padding-top: calc(17rem / 16 * 9);
                   position: relative;
                   background-color: $black;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
                   video {
                     position: absolute;
                     top: 0;
