@@ -9,11 +9,13 @@ import {
   postView,
   postVideoLike,
   postVideoUnlike,
+} from "../controllers/videoController";
+import {
+  importUserVideos,
+  isFollowed,
   incrementUserFollow,
   decrementUserFollow,
-  isFollowed,
-} from "../controllers/videoController";
-import { importUserVideos } from "../controllers/userController";
+} from "../controllers/userController";
 
 export const apiRouter = express.Router();
 

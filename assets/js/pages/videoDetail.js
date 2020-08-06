@@ -126,7 +126,96 @@ if (isVideoDetail) {
     }
   };
 
-  const importNextVideo = async () => {
+  const importNextVideos = (nextVideoData) => {
+    const nextVideoEl = document.querySelector("#nextVideo");
+    const goVideoDetail = nextVideoEl.querySelector("a");
+    const video = nextVideoEl.querySelector("video");
+    const title = nextVideoEl.querySelector(".title");
+    const creator = nextVideoEl.querySelector(".creator");
+    const view = nextVideoEl.querySelector(".view");
+    const date = nextVideoEl.querySelector(".date");
+
+    goVideoDetail.href = `/video/${nextVideoData._id}`;
+    video.src = `/${nextVideoData.videoFile}`;
+    title.textContent = nextVideoData.title;
+    creator.textContent = nextVideoData.creator.name;
+    view.textContent =
+      nextVideoData.view * 1 <= 1
+        ? `${nextVideoData.view} view`
+        : `${nextVideoData.view} views`;
+    date.textContent = nextVideoData.createdAt.substring(0, 10);
+  };
+
+  const registerVideo = (videoData, ul) => {
+    const li = document.createElement("li").classList.add("relatedVideo");
+    const a = document.createElement("a");
+
+    const col1 = document
+      .createElement("div")
+      .classList.add("relatedVideo__col");
+    const videoContainer = document
+      .createElement("div")
+      .classList.add("relatedVideo__video-container");
+    const video = document.createElement("video");
+
+    const col2 = document
+      .createElement("div")
+      .classList.add("relatedVideo__col");
+    const row1 = document
+      .createElement("div")
+      .classList.add("relatedVideo__row");
+    const title = document.createElement("span").classList.add("title");
+    const row2 = document
+      .createElement("div")
+      .classList.add("relatedVideo__row");
+    const creator = document.createElement("span").classList.add("creator");
+    const row3 = document
+      .createElement("div")
+      .classList.add("relatedVideo__row");
+    const view = document.createElement("span").classList.add("view");
+    const date = document.createElement("span").classList.add("date");
+
+    a.href = `/video/${videoData._id}`;
+    video.src = `/${videoData.videoFile}`;
+    title.textContent = videoData.title;
+    creator.textContent = videoData.creator.name;
+    view.textContent = videoData.view;
+    date.textContent = videoData.createdAt.substring(0, 10);
+
+    row3.appendChild(view);
+    row3.appendChild(date);
+    row2.appendChild(creator);
+    row1.appendChild(title);
+    col2.appendChild(row1);
+    col2.appendChild(row2);
+    col2.appendChild(row3);
+
+    videoContainer.appendChild(video);
+    col1.appendChild(videoContaiiner);
+
+    a.appendChild(col1);
+    a.appendChild(col2);
+    li.appendChild(a);
+    ul.appendChild(li);
+  };
+
+  const importRelatedVideos = (relatedVideos) => {
+    const ul = document.getElementById("relatedVideos");
+
+    console.log(relatedVideos);
+
+    while (relatedVideos.length) {
+      const roll = Math.floor(Math.random() * relatedVideos.length);
+      const lastIdx = relatedVideos.length;
+      const temp = relatedVideos[roll];
+      relatedVideos[roll] = relatedVideos[lastIdx];
+      relatedVideos[lastIdx] = temp;
+
+      registerVideo(relatedVideos.pop(), ul);
+    }
+  };
+
+  const importVideos = async () => {
     // 현재 비디오의 다음 비디오를 불러오는 함수
     // 게시자가 올린 비디오가 한 개 밖에 없을 때, 다음 비디오는 현재 비디오가 된다.
     // 두 개 이상 있을 경우, 현재 비디오의 다음 인덱스 비디오 정보를  api를 통해 받는다.
@@ -138,6 +227,7 @@ if (isVideoDetail) {
       .href.split("/user/")[1];
 
     const res = await axios(`/api/user/${creatorId}/videos`, {
+      headers: { "Content-Type": "application/json" },
       method: "POST",
       data: {
         success: true,
@@ -148,31 +238,17 @@ if (isVideoDetail) {
     const isSuccess = res.data.success;
 
     if (isSuccess) {
-      const nextVideoData = res.data.nextVideo;
-      const nextVideoEl = document.querySelector("#nextVideo");
-      const goVideoDetail = nextVideoEl.querySelector("a");
-      const video = nextVideoEl.querySelector("video");
-      const title = nextVideoEl.querySelector(".title");
-      const creator = nextVideoEl.querySelector(".creator");
-      const view = nextVideoEl.querySelector(".view");
-      const date = nextVideoEl.querySelector(".date");
-
-      goVideoDetail.href = `/video/${nextVideoData._id}`;
-      video.src = `/${nextVideoData.videoFile}`;
-      title.textContent = nextVideoData.title;
-      creator.textContent = nextVideoData.creator.name;
-      view.textContent =
-        nextVideoData.view * 1 <= 1
-          ? `${nextVideoData.view} view`
-          : `${nextVideoData.view} views`;
-      date.textContent = nextVideoData.createdAt.substring(0, 10);
+      const videoData = await res.data;
+      console.log(res);
+      importNextVideos(videoData.nextVideo);
+      importRelatedVideos(videoData.relatedVideos);
     } else {
       console.log(res);
     }
   };
 
   const init = () => {
-    importNextVideo();
+    importVideos();
     if (window.performance.navigation.type !== 2) {
       // 뒤로 가기를 이용해서 videoDetail 페이지에 왔을 경우
       // view를 올리지 않는다.

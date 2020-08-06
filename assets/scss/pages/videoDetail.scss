@@ -253,6 +253,63 @@
           }
         }
       }
+      #relatedVideos {
+        li {
+          padding: 10px 0;
+          a {
+            display: block;
+            display: flex;
+
+            .relatedVideo__col {
+              &:first-child {
+                .relatedVideo__video-container {
+                  width: 17rem;
+                  overflow: hidden;
+                  height: 0;
+                  padding-top: calc(17rem / 16 * 9);
+                  position: relative;
+                  background-color: $black;
+                  video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+              }
+
+              &:last-child {
+                width: 100%;
+                .relatedVideo__row {
+                  &:not(:last-child) {
+                    margin-bottom: 5px;
+                  }
+                  span {
+                    &.title {
+                      font-size: 1.5rem;
+                      font-weight: 600;
+                    }
+                    &.creator {
+                      font-size: 1.3rem;
+                      font-weight: 400;
+                    }
+                    &.view,
+                    &.date {
+                      font-size: 1.2rem;
+                      font-weight: 400;
+                    }
+                    &.view {
+                      margin-right: 5px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

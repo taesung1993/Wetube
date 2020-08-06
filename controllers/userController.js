@@ -73,27 +73,159 @@ export const importUserVideos = async (req, res) => {
   const {
     body: { success, videoId, creatorId },
   } = req;
+  let relatedVideos = [];
   try {
     if (success === false) throw "the req is failed.";
 
-    const videos = await Video.find()
+    const videos = await Video.find(
+      {},
+      { title: 1, videoFile: 1, createdAt: 1, view: 1 }
+    )
       .where("creator")
       .equals(creatorId)
-      .populate("creator");
+      .populate({
+        path: "creator",
+        select: ["name"],
+        populate: {
+          path: "following",
+          select: "_id",
+          populate: {
+            path: "videos",
+            select: ["videoFile", "view", "title", "createdAt"],
+            populate: {
+              path: "creator",
+              select: ["name"],
+            },
+          },
+        },
+      });
     const currentVideoIdx = videos.findIndex((video) => video.id == videoId);
-
     //  next 비디오 조건
     // 현재 비디오 다음에 비디오가 존재할 때 -> 다음 비디오가 된다.
     // 현재 비디오가 마지막 비디오일 때 -> 다음 비디오는 처음 비디오가 된다.
-
     const nextVideo =
       currentVideoIdx == videos.length - 1
         ? videos[0]
         : videos[currentVideoIdx + 1];
 
+    relatedVideos = [...videos[currentVideoIdx].creator.following[0].videos];
+    relatedVideos =
+      nextVideo._id == videoId ? relatedVideos : [nextVideo, ...relatedVideos];
+
+    console.log(relatedVideos);
+
     res.json({
       success: true,
       nextVideo,
+      relatedVideos: relatedVideos[0],
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error,
+    });
+  }
+};
+
+export const isFollowed = async (req, res) => {
+  const { body } = req;
+  try {
+    if (!req.user) throw "you must login";
+    const findId = body.findId;
+    const userId = req.user.id;
+
+    const user = await User.findById(findId);
+    const isfollowed = user.followers.includes(userId);
+    res.json({
+      success: true,
+      isfollowed,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error,
+    });
+  }
+};
+
+export const incrementUserFollow = async (req, res) => {
+  const {
+    body: { success, willFollowId },
+    user,
+  } = req;
+  try {
+    if (success === false) {
+      throw "The req is failed.";
+    }
+    if (willFollowId == user.id) {
+      throw "The logged user's id is same as id that you will follow.";
+    }
+
+    await User.findOneAndUpdate(
+      { _id: willFollowId },
+      {
+        $push: {
+          followers: user.id,
+        },
+      }
+    );
+
+    await User.findOneAndUpdate(
+      { _id: user.id },
+      {
+        $push: {
+          following: willFollowId,
+        },
+      }
+    );
+
+    res.json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error,
+    });
+  }
+};
+
+export const decrementUserFollow = async (req, res) => {
+  const {
+    body: { success, willUnfollowId },
+    user,
+  } = req;
+  try {
+    if (success === false) {
+      throw "The req is failed.";
+    }
+    if (willUnfollowId == user.id) {
+      throw "The logged user's id is same as id that you will follow.";
+    }
+
+    await User.findOneAndUpdate(
+      { _id: willUnfollowId },
+      {
+        $pull: {
+          followers: user.id,
+        },
+      }
+    );
+
+    await User.findOneAndUpdate(
+      { _id: user.id },
+      {
+        $pull: {
+          following: willFollowId,
+        },
+      }
+    );
+
+    res.json({
+      success: true,
     });
   } catch (error) {
     console.log(error);

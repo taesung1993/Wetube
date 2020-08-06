@@ -1,0 +1,14 @@
+mixin relatedVideoBlock(video={})
+    li.relatedVideo
+        a(href=`/${video.id}`)
+            .relatedVideo__col
+                .relatedVideo__video-container
+                    video
+            .relatedVideo__col
+                .relatedVideo__row
+                    span.title
+                .relatedVideo__row
+                    span.creator
+                .relatedVideo__row
+                    span.view
+                    span.date
