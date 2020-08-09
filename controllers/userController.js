@@ -2,8 +2,14 @@ import routes from "../routes";
 import User from "../models/User";
 import Video from "../models/Video";
 
-export const meDetail = (req, res) => {
-  res.render("userDetail", { pageTitle: "USER DETAIL", me: req.user });
+export const meDetail = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate("videos");
+    res.render("userDetail", { pageTitle: "USER DETAIL", me: user });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 };
 
 export const userDetail = async (req, res) => {
