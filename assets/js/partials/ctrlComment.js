@@ -84,7 +84,7 @@ const writeComment = async () => {
     const avatarLink = document.getElementById("fromAvatartoProfile");
     const nameLink = document.getElementById("fromNamertoProfile");
 
-    avatar.src = `/${commentInfo.creator.avatar}`;
+    avatar.src = `${commentInfo.creator.avatar}`;
     creator.textContent = commentInfo.creator.name;
     date.textContent = commentInfo.createdAt.substring(0, 10);
     content.textContent = commentInfo.data;

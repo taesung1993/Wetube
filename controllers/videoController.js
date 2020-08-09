@@ -1,6 +1,7 @@
 import Video from "../models/Video";
 import User from "../models/User";
 import routes from "../routes";
+import { deleteS3Obj } from "../middlewares";
 
 export const videoDetail = async (req, res) => {
   const {
@@ -61,6 +62,12 @@ export const deleteVideo = async (req, res) => {
     user,
   } = req;
   try {
+    const video = await Video.findById(id);
+    const videokeyInAws = video.videoFile.split(
+      "https://wetubesuperstorage.s3.ap-northeast-2.amazonaws.com/video/"
+    )[1];
+    console.log(videokeyInAws);
+    deleteS3Obj("wetubesuperstorage", `video/${videokeyInAws}`);
     await Video.findOneAndRemove({ _id: id });
     await User.findOneAndUpdate(
       { _id: user.id },

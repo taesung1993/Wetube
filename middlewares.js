@@ -24,6 +24,17 @@ const multerAvatar = multer({
   }),
 });
 
+export const deleteS3Obj = (Bucket, Key) => {
+  const params = {
+    Bucket,
+    Key,
+  };
+  s3.deleteObject(params, function (err, data) {
+    if (err) console.log(err, err.stack);
+    else console.log(data);
+  });
+};
+
 export const localMiddles = (req, res, next) => {
   res.locals.siteName = "WETUBE";
   res.locals.routes = routes;

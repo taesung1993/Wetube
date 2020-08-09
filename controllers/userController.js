@@ -1,6 +1,7 @@
 import routes from "../routes";
 import User from "../models/User";
 import Video from "../models/Video";
+import { deleteS3Obj } from "../middlewares";
 
 export const meDetail = async (req, res) => {
   try {
@@ -37,8 +38,17 @@ export const postEditProfile = async (req, res) => {
   } = req;
 
   try {
-    let avatar = file ? file.path : avatarUrl;
-    avatar = Boolean(isAvatarDel) ? "images/basicAvatar.png" : avatar;
+    let avatar = file ? file.location : avatarUrl;
+    const willAvatarDel = Boolean(isAvatarDel);
+    const avatarkeyInAws = willAvatarDel
+      ? avatarUrl.split(
+          "https://wetubesuperstorage.s3.ap-northeast-2.amazonaws.com/avatar/"
+        )[1]
+      : null;
+    console.log(avatarkeyInAws);
+    willAvatarDel &&
+      deleteS3Obj("wetubesuperstorage", `avatar/${avatarkeyInAws}`);
+    avatar = willAvatarDel ? "/images/basicAvatar.png" : avatar;
     await User.findOneAndUpdate(
       { _id: _id },
       { name: name, avatarUrl: avatar }
