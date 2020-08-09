@@ -1,4 +1,5 @@
 extends ./layouts/main.pug
+include ./mixins/videoBlock
 
 block contents
     .userDetail-page
@@ -36,4 +37,15 @@ block contents
             span Videos
         .video-list
             h4 Uploaded Videos
+            .videos
+                each video in me.videos
+                    +videoBlock({
+                        id:video._id,
+                        videoFile: video.videoFile,
+                        avatarUrl: me.avatarUrl,
+                        creatorName: me.name,
+                        title: video.title,
+                        view: video.view
+                    })
+                
     
