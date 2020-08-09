@@ -9,7 +9,7 @@
     .comment__row
         if loggedUser !== null
             .comment__col
-                img(src=`/${loggedUser.avatarUrl}`)
+                img(src=`${loggedUser.avatarUrl}`)
             .comment__col
                 form
                     textarea(id="inputComment", class="inputComment", placeholder="Add Comment")

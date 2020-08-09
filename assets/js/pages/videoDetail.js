@@ -136,7 +136,7 @@ if (isVideoDetail) {
     const date = nextVideoEl.querySelector(".date");
 
     goVideoDetail.href = `/video/${nextVideoData._id}`;
-    video.src = `/${nextVideoData.videoFile}`;
+    video.src = `${nextVideoData.videoFile}`;
     title.textContent = nextVideoData.title;
     creator.textContent = nextVideoData.creator.name;
     view.textContent =
@@ -177,7 +177,7 @@ if (isVideoDetail) {
     date.className = "date";
 
     a.href = `/video/${videoData._id}`;
-    video.src = `/${videoData.videoFile}`;
+    video.src = `${videoData.videoFile}`;
     title.textContent = videoData.title;
     view.textContent =
       videoData.view * 1 < 1

@@ -93,7 +93,7 @@ export const importUserVideos = async (req, res) => {
         select: ["name"],
         populate: {
           path: "following",
-          select: "_id",
+          select: { videos: 1, _id: 0 },
           populate: {
             path: "videos",
             select: ["videoFile", "view", "title", "createdAt"],
@@ -113,15 +113,20 @@ export const importUserVideos = async (req, res) => {
         ? videos[0]
         : videos[currentVideoIdx + 1];
 
-    relatedVideos = [...videos[currentVideoIdx].creator.following[0].videos];
+    const creatorCurFollowing = videos[currentVideoIdx].creator.following;
+
+    relatedVideos =
+      creatorCurFollowing &&
+      creatorCurFollowing.reduce((result, item, _) => {
+        return result.concat(...item.videos);
+      }, []);
     relatedVideos =
       nextVideo._id == videoId ? relatedVideos : [nextVideo, ...relatedVideos];
 
     res.json({
       success: true,
       nextVideo,
-      relatedVideos, // undefined 전달 됨
-      //relatedVideos[0] => undeifned 전달 안됨,
+      relatedVideos,
     });
   } catch (error) {
     console.log(error);

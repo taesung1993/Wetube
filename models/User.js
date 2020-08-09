@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   },
   avatarUrl: {
     type: String,
-    default: "images/basicAvatar.png",
+    default: "/images/basicAvatar.png",
   },
   githubId: {
     type: Number,

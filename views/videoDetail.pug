@@ -4,7 +4,7 @@ block contents
     .videoDetail-page
         .videoDetail__col
             .videoDetail__videoPlayer(ondragstart="return false", onselectstart="return false")
-                video(src=`/${video.videoFile}`)
+                video(src=`${video.videoFile}`)
                 .videoPlayer__control-bar.hidden
                     .videoPlayer__col
                         span#videoPlay
@@ -70,7 +70,7 @@ block contents
             .videoDetail__main
                 .videoDetail-main__col
                     a.go-profile-link(href=routes.userDetail(video.creator.id))
-                        img(src=`/${video.creator.avatarUrl}`)
+                        img(src=`${video.creator.avatarUrl}`)
                 .videoDetail-main__col
                     .videoDetail__row
                         .videoDetail__col
