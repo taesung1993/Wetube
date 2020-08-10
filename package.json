@@ -4,9 +4,14 @@
   "description": "Wetube is youtube clone app using vanila javascript",
   "main": "init.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
-    "build:assets": "corss-env WEBPACK_ENV=development webpack"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "copyAll": "xcopy src\\static build\\static /e /h /y && xcopy src\\views build\\views /e /h /y",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=development webpack",
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "del /s /q build",
+    "start": "node build/init.js"
   },
   "author": "Taesung Yun",
   "license": "ISC",

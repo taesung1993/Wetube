@@ -1,8 +1,10 @@
+import "@babel/polyfill";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import express from "express";
 import routes from "./routes";
 import session from "express-session";
+import path from "path";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import mongoStore from "connect-mongo";
@@ -36,11 +38,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
-app.use("/uploads", express.static("uploads"));
-app.use("/uploads/avatars", express.static("uploads/avatars"));
-app.use("/images", express.static("images"));
-app.use("/static", express.static("static"));
+app.use("/images", express.static(path.join(__dirname, "static")));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(localMiddles);
 app.use(routes.home, globalRouter);
 app.use(routes.video, videoRouter);
