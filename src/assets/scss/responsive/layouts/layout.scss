@@ -4,7 +4,7 @@
   }
 }
 
-@mixin videoDetail {
+@mixin desktop {
   @media (max-width: $breakPointDesktop) {
     @content;
   }
