@@ -1,0 +1,16 @@
+@include desktop {
+  .userDetail-page {
+    .userDetail__header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .userDetail__col {
+        &:last-child {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
