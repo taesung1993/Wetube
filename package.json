@@ -54,6 +54,7 @@
     "postcss-loader": "^3.0.0",
     "pug": "^3.0.0",
     "sass-loader": "^9.0.2",
+    "streamifier": "^0.1.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   }

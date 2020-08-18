@@ -31,3 +31,22 @@ header.header
                 div.icon
                     i.fas.fa-user-plus
                     span.meaning JOIN
+        div#SideHeaderOpen.icon
+            .hamburger__line
+            .hamburger__line
+            .hamburger__line
+.header__menu
+    .header__menu__title
+        #SideHeaderClose.hamburger
+            .hamburger__line
+            .hamburger__line
+            .hamburger__line
+        h3 Menu
+    ul.menu-list
+        if loggedUser !== null
+            a(href=`${routes.upload}`) 🎥 UPLOAD
+            a(href=`/user${routes.me}`) 😊 MY
+            a(href=`${routes.logout}`) 🖐 LOGOUT
+        else
+            a(href=`${routes.login}`) 🔒 LOGIN
+            a(href=`${routes.join}`) 👨‍👩‍👧‍👦 JOIN

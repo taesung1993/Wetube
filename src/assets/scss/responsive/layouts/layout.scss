@@ -1,0 +1,5 @@
+@mixin mobile {
+  @media (min-width: $breakpointMobile) and (max-width: $breakPointTable) {
+    @content;
+  }
+}

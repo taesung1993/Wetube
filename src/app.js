@@ -40,7 +40,7 @@ app.use(passport.session());
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/images", express.static(path.join(__dirname, "static")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(localMiddles);
 app.use(routes.home, globalRouter);

@@ -1,5 +1,5 @@
 import routes from "./routes";
-import multer from "multer";
+import multer, { memoryStorage } from "multer";
 import multerS3 from "multer-s3";
 import aws from "aws-sdk";
 
@@ -10,11 +10,7 @@ const s3 = new aws.S3({
 });
 
 const multerVideo = multer({
-  storage: multerS3({
-    s3,
-    acl: "public-read",
-    bucket: "wetubesuperstorage/video",
-  }),
+  storage: multer.memoryStorage(),
 });
 const multerAvatar = multer({
   storage: multerS3({
@@ -24,12 +20,24 @@ const multerAvatar = multer({
   }),
 });
 
+export const insertS3Obj = (stream) => {
+  const params = {
+    Bucket: "wetubesuperstorage",
+    Key: "thumbnails",
+    Body: stream,
+  };
+  s3.putObject(params, (err, data) => {
+    if (err) console.log(err, err.stack);
+    else console.log(data);
+  });
+};
+
 export const deleteS3Obj = (Bucket, Key) => {
   const params = {
     Bucket,
     Key,
   };
-  s3.deleteObject(params, function (err, data) {
+  s3.deleteObject(params, (err, data) => {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });

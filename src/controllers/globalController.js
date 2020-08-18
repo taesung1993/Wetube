@@ -2,9 +2,11 @@ import passport from "passport";
 import routes from "../routes";
 import Video from "../models/Video";
 import User from "../models/User";
+import streamifier from "streamifier";
 import ffmpeg from "fluent-ffmpeg";
-import getVideoDuration from "get-video-duration";
-import path from "path";
+import fs from "fs";
+import { insertS3Obj } from "../middlewares";
+import { Readable } from "stream";
 
 export const home = async (req, res) => {
   let videos = [];
@@ -19,22 +21,6 @@ export const home = async (req, res) => {
 
 // upload Part
 
-const generateVideoThumbnail = (videolink, duration, name) => {
-  ffmpeg(videolink)
-    .on("filename", (filename) => {
-      console.log(`will generate ${filename.join(",")}`);
-    })
-    .on("end", () => {
-      console.log("screenshot taken");
-    })
-    .screenshots({
-      timestamps: Array.from({ length: duration }, (_, idx) => idx),
-      filename: `thumbnail-at-$s-second.png`,
-      folder: `${path.resolve(__dirname, "..")}/thumbnail/${name}`,
-      size: "320x240",
-    });
-};
-
 export const getUpload = (req, res) => {
   res.render("upload", { pageTitle: "UPLOAD" });
 };
@@ -42,24 +28,22 @@ export const postUpload = async (req, res) => {
   const {
     body: { title, description },
     user: { _id },
-    file: { location },
+    file: { buffer },
   } = req;
-  // try {
-  const videoDuration = parseInt(await getVideoDuration(req.file.location));
-  generateVideoThumbnail(req.file.location, videoDuration, req.file.key);
-  //   const newVideo = await Video.create({
-  //     videoFile: location,
-  //     title,
-  //     description,
-  //     creator: _id,
-  //   });
-  //   req.user.videos.push(newVideo._id);
-  //   req.user.save();
-  //   res.redirect(routes.videoDetail(newVideo._id));
-  // } catch (error) {
-  //   console.log(error);
-  //   res.redirect(routes.home);
-  // }
+  try {
+    const newVideo = await Video.create({
+      videoFile: location,
+      title,
+      description,
+      creator: _id,
+    });
+    req.user.videos.push(newVideo._id);
+    req.user.save();
+    res.redirect(routes.videoDetail(newVideo._id));
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 };
 
 // Github Login Part
