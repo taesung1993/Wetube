@@ -114,6 +114,7 @@ export const importUserVideos = async (req, res) => {
           },
         },
       });
+
     const currentVideoIdx = videos.findIndex((video) => video.id == videoId);
     //  next 비디오 조건
     // 현재 비디오 다음에 비디오가 존재할 때 -> 다음 비디오가 된다.

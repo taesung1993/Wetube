@@ -1,5 +1,11 @@
 @mixin mobile {
-  @media (min-width: $breakpointMobile) and (max-width: $breakPointTable) {
+  @media (min-width: $breakPointMobile) and (max-width: $breakPointTablet) {
+    @content;
+  }
+}
+
+@mixin videoDetail {
+  @media (max-width: $breakPointDesktop) {
     @content;
   }
 }

@@ -127,23 +127,25 @@ if (isVideoDetail) {
   };
 
   const importNextVideos = (nextVideoData) => {
-    const nextVideoEl = document.querySelector("#nextVideo");
-    const goVideoDetail = nextVideoEl.querySelector("a");
-    const video = nextVideoEl.querySelector("video");
-    const title = nextVideoEl.querySelector(".title");
-    const creator = nextVideoEl.querySelector(".creator");
-    const view = nextVideoEl.querySelector(".view");
-    const date = nextVideoEl.querySelector(".date");
+    const nextVideoEls = document.querySelectorAll(".nextVideo");
+    nextVideoEls.forEach((nextVideoEl) => {
+      const goVideoDetail = nextVideoEl.querySelector("a");
+      const video = nextVideoEl.querySelector("video");
+      const title = nextVideoEl.querySelector(".title");
+      const creator = nextVideoEl.querySelector(".creator");
+      const view = nextVideoEl.querySelector(".view");
+      const date = nextVideoEl.querySelector(".date");
 
-    goVideoDetail.href = `/video/${nextVideoData._id}`;
-    video.src = `${nextVideoData.videoFile}`;
-    title.textContent = nextVideoData.title;
-    creator.textContent = nextVideoData.creator.name;
-    view.textContent =
-      nextVideoData.view * 1 <= 1
-        ? `${nextVideoData.view} view`
-        : `${nextVideoData.view} views`;
-    date.textContent = nextVideoData.createdAt.substring(0, 10);
+      goVideoDetail.href = `/video/${nextVideoData._id}`;
+      video.src = `${nextVideoData.videoFile}`;
+      title.textContent = nextVideoData.title;
+      creator.textContent = nextVideoData.creator.name;
+      view.textContent =
+        nextVideoData.view * 1 <= 1
+          ? `${nextVideoData.view} view`
+          : `${nextVideoData.view} views`;
+      date.textContent = nextVideoData.createdAt.substring(0, 10);
+    });
   };
 
   const registerVideo = (videoData, ul) => {
@@ -200,11 +202,12 @@ if (isVideoDetail) {
     a.appendChild(col1);
     a.appendChild(col2);
     li.appendChild(a);
+
     ul.appendChild(li);
   };
 
   const importRelatedVideos = (relatedVideos) => {
-    const ul = document.getElementById("relatedVideos");
+    const uls = document.querySelectorAll(".relatedVideos");
 
     if (!relatedVideos) return;
     // relatedVideos 확인
@@ -217,7 +220,9 @@ if (isVideoDetail) {
       relatedVideos[lastIdx] = temp;
 
       const relatedVideo = relatedVideos.pop();
-      registerVideo(relatedVideo, ul);
+      uls.forEach((ul) => {
+        registerVideo(relatedVideo, ul);
+      });
     }
   };
 
@@ -245,6 +250,7 @@ if (isVideoDetail) {
 
     if (isSuccess) {
       const { nextVideo, relatedVideos } = res.data;
+      console.log(res);
       importNextVideos(nextVideo);
       // importRelatedVideos 호출
       relatedVideos && importRelatedVideos(relatedVideos);

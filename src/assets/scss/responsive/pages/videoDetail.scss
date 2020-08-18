@@ -1,0 +1,15 @@
+@include videoDetail {
+  .videoDetail-page {
+    .videoDetail__col {
+      &:first-child {
+        .creator-video {
+          .creator-video__title-bar {
+            margin: 20px 0;
+            font-size: 2rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

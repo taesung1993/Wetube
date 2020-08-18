@@ -2,6 +2,123 @@
   min-height: 92vh;
   padding: 30px;
   display: flex;
+
+  .nextVideo {
+    padding: 10px 0;
+    border-bottom: 1px solid $lineColor;
+    a {
+      display: block;
+      width: 100%;
+      display: flex;
+      .nextVideo__col {
+        &:first-child {
+          margin-right: 10px;
+          .nextVideo__video-container {
+            width: 17rem;
+            overflow: hidden;
+            height: 0;
+            padding-top: calc(17rem / 16 * 9);
+            position: relative;
+            background-color: $black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
+            video {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        &:last-child {
+          width: 100%;
+          .nextVideo__row {
+            &:not(:last-child) {
+              margin-bottom: 5px;
+            }
+            span {
+              &.title {
+                font-size: 1.5rem;
+                font-weight: 600;
+              }
+              &.creator {
+                font-size: 1.3rem;
+                font-weight: 400;
+              }
+              &.view,
+              &.date {
+                font-size: 1.2rem;
+                font-weight: 400;
+              }
+              &.view {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .relatedVideos {
+    li {
+      padding: 20px 0;
+      a {
+        display: block;
+        display: flex;
+
+        .relatedVideo__col {
+          &:first-child {
+            margin-right: 10px;
+            .relatedVideo__video-container {
+              width: 17rem;
+              overflow: hidden;
+              height: 0;
+              padding-top: calc(17rem / 16 * 9);
+              position: relative;
+              background-color: $black;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
+              video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+
+          &:last-child {
+            width: 100%;
+            .relatedVideo__row {
+              &:not(:last-child) {
+                margin-bottom: 5px;
+              }
+              span {
+                &.title {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                }
+                &.creator {
+                  font-size: 1.3rem;
+                  font-weight: 400;
+                }
+                &.view,
+                &.date {
+                  font-size: 1.2rem;
+                  font-weight: 400;
+                }
+                &.view {
+                  margin-right: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .videoDetail__col {
     flex: 7;
     &:first-child {
@@ -195,122 +312,6 @@
           font-size: 2rem;
           font-weight: 600;
           letter-spacing: 2px;
-        }
-      }
-      #nextVideo {
-        padding: 10px 0;
-        border-bottom: 1px solid $lineColor;
-        a {
-          display: block;
-          width: 100%;
-          display: flex;
-          .nextVideo__col {
-            &:first-child {
-              margin-right: 10px;
-              .nextVideo__video-container {
-                width: 17rem;
-                overflow: hidden;
-                height: 0;
-                padding-top: calc(17rem / 16 * 9);
-                position: relative;
-                background-color: $black;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
-                video {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                }
-              }
-            }
-            &:last-child {
-              width: 100%;
-              .nextVideo__row {
-                &:not(:last-child) {
-                  margin-bottom: 5px;
-                }
-                span {
-                  &.title {
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                  }
-                  &.creator {
-                    font-size: 1.3rem;
-                    font-weight: 400;
-                  }
-                  &.view,
-                  &.date {
-                    font-size: 1.2rem;
-                    font-weight: 400;
-                  }
-                  &.view {
-                    margin-right: 5px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      #relatedVideos {
-        li {
-          padding: 20px 0;
-          a {
-            display: block;
-            display: flex;
-
-            .relatedVideo__col {
-              &:first-child {
-                margin-right: 10px;
-                .relatedVideo__video-container {
-                  width: 17rem;
-                  overflow: hidden;
-                  height: 0;
-                  padding-top: calc(17rem / 16 * 9);
-                  position: relative;
-                  background-color: $black;
-                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
-                  video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                  }
-                }
-              }
-
-              &:last-child {
-                width: 100%;
-                .relatedVideo__row {
-                  &:not(:last-child) {
-                    margin-bottom: 5px;
-                  }
-                  span {
-                    &.title {
-                      font-size: 1.5rem;
-                      font-weight: 600;
-                    }
-                    &.creator {
-                      font-size: 1.3rem;
-                      font-weight: 400;
-                    }
-                    &.view,
-                    &.date {
-                      font-size: 1.2rem;
-                      font-weight: 400;
-                    }
-                    &.view {
-                      margin-right: 5px;
-                    }
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }

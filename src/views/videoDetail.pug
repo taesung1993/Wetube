@@ -94,11 +94,29 @@ block contents
                                     span.btn Follow
                     .videoDetail__row
                         p.videoDetail__description=video.description
+                    .videoDetail__col.creator-video
+            .creator-video.relatedVideo--Section
+                .creator-video__title-bar
+                    h3 Next Video
+                .nextVideo
+                    a(href="#")
+                        .nextVideo__col
+                            .nextVideo__video-container
+                                video
+                        .nextVideo__col
+                            .nextVideo__row
+                                span.title
+                            .nextVideo__row
+                                span.creator
+                            .nextVideo__row
+                                span.view
+                                span.date
+                ul.relatedVideos
             include ./partials/videoComment
-        .videoDetail__col.creator-video
+        .videoDetail__col.creator-video.relatedVideo--Section
             .creator-video__title-bar
                 h3 Next Video
-            #nextVideo
+            .nextVideo
                 a(href="#")
                     .nextVideo__col
                         .nextVideo__video-container
@@ -111,7 +129,7 @@ block contents
                         .nextVideo__row
                             span.view
                             span.date
-            ul#relatedVideos
+            ul.relatedVideos
 
 
             

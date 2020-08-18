@@ -10,7 +10,11 @@ const s3 = new aws.S3({
 });
 
 const multerVideo = multer({
-  storage: multer.memoryStorage(),
+  storage: multerS3({
+    s3,
+    acl: "public-read",
+    bucket: "wetubesuperstorage/video",
+  }),
 });
 const multerAvatar = multer({
   storage: multerS3({
