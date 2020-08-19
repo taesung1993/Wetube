@@ -1,5 +1,6 @@
 @import "./config/reset.scss";
 @import "./config/_variable.scss";
+@import "./mixins/limitText.scss";
 @import "./layouts/main.scss";
 @import "./partials/header.scss";
 @import "./partials/searchForm.scss";
