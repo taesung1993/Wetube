@@ -3,26 +3,31 @@
   "version": "1.0.0",
   "description": "Wetube is youtube clone app using vanila javascript",
   "main": "init.js",
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --delay 2",
     "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
-    "copyAll": "xcopy src\\static build\\static /e /h /y && xcopy src\\views build\\views /e /h /y",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
     "build:assets": "cd src && cross-env WEBPACK_ENV=development webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "prebuild": "del /s /q build",
+    "prebuild": "rm -rf build",
     "start": "node build/init.js"
   },
   "author": "Taesung Yun",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.10.5",
+    "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.10.4",
     "cross-env": "^7.0.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
+    "@babel/cli": "^7.10.5",
     "@babel/node": "^7.10.5",
     "@babel/polyfill": "^7.10.4",
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
