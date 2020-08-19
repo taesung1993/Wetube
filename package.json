@@ -15,7 +15,7 @@
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
-    "start": "node build/init.js",
+    "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
   "author": "Taesung Yun",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
     "@babel/node": "^7.10.5",
     "@babel/polyfill": "^7.10.4",
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
