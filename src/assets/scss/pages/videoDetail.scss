@@ -41,6 +41,14 @@
               &.title {
                 font-size: 1.5rem;
                 font-weight: 600;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* 라인수 */
+                -webkit-box-orient: vertical;
+                word-wrap: break-word;
+                line-height: 1.2em;
+                height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
               }
               &.creator {
                 font-size: 1.3rem;
@@ -99,6 +107,14 @@
                 &.title {
                   font-size: 1.5rem;
                   font-weight: 600;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2; /* 라인수 */
+                  -webkit-box-orient: vertical;
+                  word-wrap: break-word;
+                  line-height: 1.2em;
+                  height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
                 }
                 &.creator {
                   font-size: 1.3rem;

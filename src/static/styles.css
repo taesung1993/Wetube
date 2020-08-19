@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -1541,7 +1542,18 @@ footer {
           margin-bottom: 5px; }
         .videoDetail-page .nextVideo a .nextVideo__col:last-child .nextVideo__row span.title {
           font-size: 1.5rem;
-          font-weight: 600; }
+          font-weight: 600;
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+             text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          /* 라인수 */
+          -webkit-box-orient: vertical;
+          word-wrap: break-word;
+          line-height: 1.2em;
+          height: 2.4em;
+          /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */ }
         .videoDetail-page .nextVideo a .nextVideo__col:last-child .nextVideo__row span.creator {
           font-size: 1.3rem;
           font-weight: 400; }
@@ -1587,7 +1599,18 @@ footer {
           margin-bottom: 5px; }
         .videoDetail-page .relatedVideos li a .relatedVideo__col:last-child .relatedVideo__row span.title {
           font-size: 1.5rem;
-          font-weight: 600; }
+          font-weight: 600;
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+             text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          /* 라인수 */
+          -webkit-box-orient: vertical;
+          word-wrap: break-word;
+          line-height: 1.2em;
+          height: 2.4em;
+          /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */ }
         .videoDetail-page .relatedVideos li a .relatedVideo__col:last-child .relatedVideo__row span.creator {
           font-size: 1.3rem;
           font-weight: 400; }
@@ -1946,10 +1969,21 @@ footer {
   .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row {
     width: 100%; }
     .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:first-child {
-      max-height: 50px;
-      margin-bottom: 10px;
-      font-size: 1.8rem;
-      font-weight: 400; }
+      margin-bottom: 10px; }
+      .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:first-child span {
+        font-size: 1.8rem;
+        font-weight: 400;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* 라인수 */
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        line-height: 1.2em;
+        height: 2.4em;
+        /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */ }
     .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:last-child span {
       display: block;
       font-size: 1.6rem; }
