@@ -1257,69 +1257,73 @@ footer {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-       -moz-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     -webkit-box-align: center;
     -webkit-align-items: center;
        -moz-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    .userDetail-page .userDetail__header .userDetail__col:first-child {
+    .userDetail-page .userDetail__header img {
+      width: 100px;
+      height: 100px;
+      -webkit-border-radius: 50%;
+         -moz-border-radius: 50%;
+              border-radius: 50%;
+      border: 1px solid #e9e9e9;
+      -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+         -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+              box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      margin-right: 30px;
+      -o-object-fit: cover;
+         object-fit: cover; }
+    .userDetail-page .userDetail__header .userDetail__info {
+      width: 100%;
       display: -webkit-box;
       display: -webkit-flex;
       display: -moz-box;
       display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
       -webkit-box-align: center;
       -webkit-align-items: center;
          -moz-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
-      .userDetail-page .userDetail__header .userDetail__col:first-child img {
-        width: 100px;
-        height: 100px;
-        -webkit-border-radius: 50%;
-           -moz-border-radius: 50%;
-                border-radius: 50%;
-        border: 1px solid #e9e9e9;
-        -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-           -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-                box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-        margin-right: 30px;
-        -o-object-fit: cover;
-           object-fit: cover; }
-      .userDetail-page .userDetail__header .userDetail__col:first-child .userDetail__row:first-child span {
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__nameField .name {
         font-size: 3rem;
         font-weight: 600;
         letter-spacing: 2px;
         white-space: nowrap; }
-      .userDetail-page .userDetail__header .userDetail__col:first-child .userDetail__row:last-child {
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__nameField .followerNum,
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__nameField .floowerText {
         margin-top: 5px;
         font-size: 1.6rem;
         font-weight: 400;
         opacity: 0.6; }
-        .userDetail-page .userDetail__header .userDetail__col:first-child .userDetail__row:last-child .followerNum {
-          margin-right: 5px;
-          white-space: nowrap; }
-        .userDetail-page .userDetail__header .userDetail__col:first-child .userDetail__row:last-child .followerText {
-          white-space: nowrap; }
-    .userDetail-page .userDetail__header .userDetail__col:last-child button {
-      padding: 10px 20px;
-      font-size: 2rem;
-      font-weight: 400;
-      background-color: #0fbcf9;
-      color: white;
-      border: none;
-      -webkit-border-radius: 5px;
-         -moz-border-radius: 5px;
-              border-radius: 5px;
-      opacity: 0.7;
-      margin-left: 10px; }
-      .userDetail-page .userDetail__header .userDetail__col:last-child button:hover {
-        opacity: 1; }
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__nameField .followerNum {
+        margin-right: 5px;
+        white-space: nowrap; }
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__nameField .followerText {
+        white-space: nowrap; }
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField button {
+        padding: 10px 20px;
+        font-size: 2rem;
+        font-weight: 400;
+        background-color: #0fbcf9;
+        color: white;
+        border: none;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        opacity: 0.7;
+        margin-right: 10px; }
+        .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField button:hover {
+          opacity: 1; }
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField .followBtn {
+        width: 150px; }
   .userDetail-page .userDetail__menu {
     padding: 0 60px;
     height: 60px;
@@ -1552,8 +1556,8 @@ footer {
           -webkit-box-orient: vertical;
           word-wrap: break-word;
           line-height: 1.2em;
-          height: 2.4em;
-          /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */ }
+          min-height: 1.2em;
+          max-height: 2.4em; }
         .videoDetail-page .nextVideo a .nextVideo__col:last-child .nextVideo__row span.creator {
           font-size: 1.3rem;
           font-weight: 400; }
@@ -1609,8 +1613,8 @@ footer {
           -webkit-box-orient: vertical;
           word-wrap: break-word;
           line-height: 1.2em;
-          height: 2.4em;
-          /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */ }
+          min-height: 1.2em;
+          max-height: 2.4em; }
         .videoDetail-page .relatedVideos li a .relatedVideo__col:last-child .relatedVideo__row span.creator {
           font-size: 1.3rem;
           font-weight: 400; }
@@ -1982,8 +1986,8 @@ footer {
         -webkit-box-orient: vertical;
         word-wrap: break-word;
         line-height: 1.2em;
-        height: 2.4em;
-        /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */ }
+        min-height: 1.2em;
+        max-height: 2.4em; }
     .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:last-child span {
       display: block;
       font-size: 1.6rem; }
@@ -1995,12 +1999,7 @@ footer {
     font-weight: 600; } }
 
 @media (max-width: 1024px) {
-  .userDetail-page .userDetail__header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
+  .userDetail-page .userDetail__header .userDetail__info {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -2013,13 +2012,27 @@ footer {
        -moz-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-       -moz-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    .userDetail-page .userDetail__header .userDetail__col:last-child {
-      margin-top: 30px; } }
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+       -moz-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+    .userDetail-page .userDetail__header .userDetail__info .userDetail__nameField .name {
+      font-size: 2.5rem; }
+    .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField {
+      margin-top: 10px; }
+      .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField button {
+        font-size: 1.5rem;
+        padding: 5px 10px; } }
+
+@media (min-width: 355px) and (max-width: 568px) {
+  .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField a {
+    display: block; }
+    .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField a:last-child {
+      margin-top: 5px; }
+    .userDetail-page .userDetail__header .userDetail__info .userDetail__btnField a button {
+      font-size: 1.5rem;
+      padding: 5px 10px; } }
 
 @media (min-width: 355px) and (max-width: 758px) {
   .header {

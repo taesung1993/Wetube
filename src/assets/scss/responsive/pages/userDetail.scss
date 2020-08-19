@@ -1,14 +1,42 @@
 @include desktop {
   .userDetail-page {
     .userDetail__header {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+      .userDetail__info {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .userDetail__nameField {
+          .name {
+            font-size: 2.5rem;
+          }
+        }
+        .userDetail__btnField {
+          margin-top: 10px;
+          button {
+            font-size: 1.5rem;
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+  }
+}
 
-      .userDetail__col {
-        &:last-child {
-          margin-top: 30px;
+@media (min-width: 355px) and (max-width: 568px) {
+  .userDetail-page {
+    .userDetail__header {
+      .userDetail__info {
+        .userDetail__btnField {
+          a {
+            display: block;
+            &:last-child {
+              margin-top: 5px;
+            }
+            button {
+              font-size: 1.5rem;
+              padding: 5px 10px;
+            }
+          }
         }
       }
     }

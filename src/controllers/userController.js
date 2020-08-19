@@ -226,6 +226,8 @@ export const decrementUserFollow = async (req, res) => {
       throw "The logged user's id is same as id that you will follow.";
     }
 
+    console.log(willUnfollowId);
+
     await User.findOneAndUpdate(
       { _id: willUnfollowId },
       {
@@ -239,7 +241,7 @@ export const decrementUserFollow = async (req, res) => {
       { _id: user.id },
       {
         $pull: {
-          following: willFollowId,
+          following: willUnfollowId,
         },
       }
     );

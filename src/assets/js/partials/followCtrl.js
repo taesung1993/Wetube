@@ -57,6 +57,7 @@ if (isFollowBtn) {
       ? profilelink.href.split("/user/")[1]
       : window.location.href.split("http://localhost:9000/user/")[1];
 
+    console.log(userId);
     const res = await axios(`/api/user/${userId}/follow`, {
       method: "DELETE",
       data: {
