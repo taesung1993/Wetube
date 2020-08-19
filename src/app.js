@@ -11,9 +11,9 @@ import mongoStore from "connect-mongo";
 import helmet from "helmet";
 import passport from "passport";
 
-import { globalRouter } from "./Routers/globalRouter";
-import { videoRouter } from "./Routers/videoRouter";
-import { userRouter } from "./Routers/userRouter";
+import { globalRouter } from "./routers/globalRouter";
+import { videoRouter } from "./routers/videoRouter";
+import { userRouter } from "./routers/userRouter";
 import { localMiddles } from "./middlewares";
 
 import "./passport";
