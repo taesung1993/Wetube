@@ -259,7 +259,11 @@
           &:last-child {
             width: 100%;
             padding-left: 20px;
+            background-color: yellow;
             .videoDetail__row {
+              &:last-child {
+                background-color: red;
+              }
               &:first-child {
                 display: flex;
                 margin-bottom: 15px;
@@ -292,12 +296,6 @@
                       padding: 0.5rem 1rem;
                     }
                   }
-                }
-              }
-              &:last-child {
-                background-color: red;
-                .videoDetail__description {
-                  font-size: 1.8rem;
                 }
               }
             }
