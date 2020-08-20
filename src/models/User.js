@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema({
   },
   avatarUrl: {
     type: String,
-    default: "/images/basicAvatar.png",
+    default:
+      "https://wetubesuperstorage.s3.ap-northeast-2.amazonaws.com/images/basicAvatar.png",
   },
   githubId: {
     type: Number,

@@ -48,7 +48,9 @@ export const postEditProfile = async (req, res) => {
     console.log(avatarkeyInAws);
     willAvatarDel &&
       deleteS3Obj("wetubesuperstorage", `avatar/${avatarkeyInAws}`);
-    avatar = willAvatarDel ? "/images/basicAvatar.png" : avatar;
+    avatar = willAvatarDel
+      ? "https://wetubesuperstorage.s3.ap-northeast-2.amazonaws.com/images/basicAvatar.png"
+      : avatar;
     await User.findOneAndUpdate(
       { _id: _id },
       { name: name, avatarUrl: avatar }
