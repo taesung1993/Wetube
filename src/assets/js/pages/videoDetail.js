@@ -9,7 +9,7 @@ if (isVideoDetail) {
 
   const incrementView = async () => {
     const videoId = window.location.href.split(
-      "http://localhost:9000/video/"
+      "https://secret-savannah-99819.herokuapp.com/video/"
     )[1];
     const res = await axios(`/api/video/${videoId}/view`, {
       method: "POST",
@@ -35,7 +35,7 @@ if (isVideoDetail) {
     // isCanceled : 좋아요 버튼이 클릭되어있는 상태에서 누르면 - 취소
     //              좋아요 버튼이 클릭되지않은 상태에서 누르면 - 좋아요
     const videoId = window.location.href.split(
-      "http://localhost:9000/video/"
+      "https://secret-savannah-99819.herokuapp.com/video/"
     )[1];
     const isSelected = thumbUp.className;
     const isSelectedUnlike = thumbDown.className;
@@ -83,7 +83,7 @@ if (isVideoDetail) {
     // 위에 있는 incrementLike 함수와 동작방식 같음
 
     const videoId = window.location.href.split(
-      "http://localhost:9000/video/"
+      "https://secret-savannah-99819.herokuapp.com/video/"
     )[1];
     const isSelected = thumbDown.className;
     const isSelectedUnlike = thumbUp.className;
@@ -231,7 +231,7 @@ if (isVideoDetail) {
     // 게시자가 올린 비디오가 한 개 밖에 없을 때, 다음 비디오는 현재 비디오가 된다.
     // 두 개 이상 있을 경우, 현재 비디오의 다음 인덱스 비디오 정보를  api를 통해 받는다.
     const videoId = window.location.href.split(
-      "http://localhost:9000/video/"
+      "https://secret-savannah-99819.herokuapp.com/video/"
     )[1];
     const creatorId = document
       .querySelector(".go-profile-link")

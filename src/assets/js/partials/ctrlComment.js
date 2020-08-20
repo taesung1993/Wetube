@@ -13,7 +13,9 @@ let preTextarea = null;
 
 const deleteComment = async (event) => {
   const commentId = event.path[6].id;
-  const videoId = window.location.href.split("http://localhost:9000/video/")[1];
+  const videoId = window.location.href.split(
+    "https://secret-savannah-99819.herokuapp.com/video/"
+  )[1];
   const commentList = event.path[7];
   const comment = event.path[6];
 
@@ -42,7 +44,9 @@ const updateComment = async (
   modifyBtnBox
 ) => {
   // update 작업 axious 이용할 것!
-  const id = window.location.href.split("http://localhost:9000/video/")[1];
+  const id = window.location.href.split(
+    "https://secret-savannah-99819.herokuapp.com/video/"
+  )[1];
   const changeValue = textarea.value;
   textarea.value = "";
   const res = await axios(`/api/video/${id}/comment`, {
@@ -63,7 +67,9 @@ const updateComment = async (
 };
 
 const writeComment = async () => {
-  const id = window.location.href.split("http://localhost:9000/video/")[1];
+  const id = window.location.href.split(
+    "https://secret-savannah-99819.herokuapp.com/video/"
+  )[1];
   const msg = inputComment.value;
   const res = await axios(`/api/video/${id}/comment`, {
     method: "POST",

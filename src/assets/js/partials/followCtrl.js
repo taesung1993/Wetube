@@ -25,7 +25,9 @@ if (isFollowBtn) {
     const profilelink = document.querySelector(".go-profile-link");
     const userId = profilelink
       ? profilelink.href.split("/user/")[1]
-      : window.location.href.split("http://localhost:9000/user/")[1];
+      : window.location.href.split(
+          "https://secret-savannah-99819.herokuapp.com/user/"
+        )[1];
 
     const res = await axios(`/api/user/${userId}/follow`, {
       method: "PUT",
@@ -55,7 +57,9 @@ if (isFollowBtn) {
     const profilelink = document.querySelector(".go-profile-link");
     const userId = profilelink
       ? profilelink.href.split("/user/")[1]
-      : window.location.href.split("http://localhost:9000/user/")[1];
+      : window.location.href.split(
+          "https://secret-savannah-99819.herokuapp.com/user/"
+        )[1];
 
     console.log(userId);
     const res = await axios(`/api/user/${userId}/follow`, {
@@ -108,7 +112,9 @@ if (isFollowBtn) {
     const profilelink = document.querySelector(".go-profile-link");
     const userId = profilelink
       ? profilelink.href.split("/user/")[1]
-      : window.location.href.split("http://localhost:9000/user/")[1];
+      : window.location.href.split(
+          "https://secret-savannah-99819.herokuapp.com/user/"
+        )[1];
 
     const res = await axios(`/api/user/${userId}/follow`, {
       method: "POST",
