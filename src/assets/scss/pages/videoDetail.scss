@@ -260,8 +260,10 @@
             width: 100%;
             padding-left: 20px;
             .videoDetail__row {
-              &:first-child {
+              &:nth-child(2) {
                 background-color: yellow;
+              }
+              &:first-child {
                 display: flex;
                 margin-bottom: 15px;
                 .videoDetail__col {
