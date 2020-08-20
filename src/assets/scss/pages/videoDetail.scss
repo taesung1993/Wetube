@@ -19,8 +19,6 @@
             height: 0;
             padding-top: calc(17rem / 16 * 9);
             position: relative;
-            background-color: $black;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
             video {
               position: absolute;
               top: 0;
@@ -260,9 +258,6 @@
             width: 100%;
             padding-left: 20px;
             .videoDetail__row {
-              &:nth-child(2) {
-                background-color: yellow;
-              }
               &:first-child {
                 display: flex;
                 margin-bottom: 15px;
@@ -296,6 +291,10 @@
                     }
                   }
                 }
+              }
+
+              &:nth-child(2) {
+                font-size: 1.8rem;
               }
             }
           }
