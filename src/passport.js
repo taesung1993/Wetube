@@ -25,7 +25,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: `http://localhost:9000${routes.googleCb}`,
+      callbackURL: `https://secret-savannah-99819.herokuapp.com${routes.googleCb}`,
     },
     googleLoginCallback
   )
