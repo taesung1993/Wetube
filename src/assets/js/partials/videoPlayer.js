@@ -27,7 +27,7 @@ let currentProgressBarRate = 0;
 let isVolCtrl = false;
 let isProgressCtrl = false;
 
-let curentVolLevel = 0.5;
+let currentVolLevel = 0.5;
 
 // 볼륨 컨트롤 함수들
 
@@ -45,8 +45,8 @@ const handleMuted = () => {
   if (videoPlayer.muted) {
     videoPlayer.muted = false;
     icon.className = "fas fa-volume-up";
-    videoPlayer.volume = curentVolLevel;
-    volCurrentLevel.style.height = `${curentVolLevel * 100}%`;
+    videoPlayer.volume = currentVolLevel;
+    volCurrentLevel.style.height = `${currentVolLevel * 100}%`;
   } else {
     videoPlayer.muted = true;
     icon.className = "fas fa-volume-mute";
@@ -67,7 +67,7 @@ const setVolLevel = (event) => {
     } else if (currentRate < 0) {
       currentRate = 0;
     }
-    curentVolLevel = currentRate / 100;
+    currentVolLevel = currentRate / 100;
     videoPlayer.volume = currentVolLevel;
     volCurrentLevel.style.height = `${currentRate}%`;
   }

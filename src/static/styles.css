@@ -591,7 +591,8 @@ footer {
             height: 3px;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.39);
-            position: relative; }
+            position: relative;
+            z-index: 11; }
             .videoDetail__videoPlayer .videoPlayer__control-bar .videoPlayer__col:nth-child(2) .progress-bar .progress-bar__track .current-rate {
               height: 100%;
               width: 0%;
@@ -1527,11 +1528,7 @@ footer {
           padding-top: -webkit-calc(17rem / 16 * 9);
           padding-top: -moz-calc(17rem / 16 * 9);
           padding-top: calc(17rem / 16 * 9);
-          position: relative;
-          background-color: #2d3436;
-          -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
-             -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
-                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.24); }
+          position: relative; }
           .videoDetail-page .nextVideo a .nextVideo__col:first-child .nextVideo__video-container video {
             position: absolute;
             top: 0;
@@ -1584,11 +1581,7 @@ footer {
           padding-top: -webkit-calc(17rem / 16 * 9);
           padding-top: -moz-calc(17rem / 16 * 9);
           padding-top: calc(17rem / 16 * 9);
-          position: relative;
-          background-color: #2d3436;
-          -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
-             -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
-                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.24); }
+          position: relative; }
           .videoDetail-page .relatedVideos li a .relatedVideo__col:first-child .relatedVideo__video-container video {
             position: absolute;
             top: 0;
@@ -1837,8 +1830,8 @@ footer {
                     justify-content: flex-end; }
             .videoDetail-page .videoDetail__col:first-child .videoDetail__main .videoDetail-main__col:last-child .videoDetail__row:first-child .videoDetail__col:last-child .followBtn {
               padding: 0.5rem 1rem; }
-        .videoDetail-page .videoDetail__col:first-child .videoDetail__main .videoDetail-main__col:last-child .videoDetail__row:last-child p {
-          font-size: 1.6rem; }
+        .videoDetail-page .videoDetail__col:first-child .videoDetail__main .videoDetail-main__col:last-child .videoDetail__row:nth-child(2) {
+          font-size: 1.8rem; }
     .videoDetail-page .videoDetail__col:last-child {
       -webkit-box-flex: 3;
       -webkit-flex: 3;
