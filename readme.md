@@ -38,7 +38,6 @@ Wetube는 node.js 프레임 워크와 바닐라 자바스크립트를 이용해�
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "fluent-ffmpeg": "^2.1.2",
     "get-video-duration": "^3.0.1",
     "helmet": "^3.23.3",
     "mongoose": "^5.9.25",
@@ -54,7 +53,6 @@ Wetube는 node.js 프레임 워크와 바닐라 자바스크립트를 이용해�
     "postcss-loader": "^3.0.0",
     "pug": "^3.0.0",
     "sass-loader": "^9.0.2",
-    "streamifier": "^0.1.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   }
