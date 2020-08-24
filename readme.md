@@ -1,16 +1,7 @@
-# WETUBE PROJECT
+# 🖐 소개(Introduction)
 
-- TODAY's TO DO LIST
-- COMPLETE THE PAGES (FUNCTION)
-- [x] HOME (Page controller complete)
-- [x] JOIN, (Page controller complete) Design: O
-- [x] LOGIN, (Page controller complete) Design: O
-- [x] LOGOUT, (Page controller complete)
-- [x] UPLOAD, (Page controller complete) Design: O
-- [x] VIDEO DETAIL (Page controller complete)
-- [x] VIDEO EDIT (Page controller complete)
-- [x] VIDEO DELETE (Page controller complete)
-- [x] EDIT PROFILE
-- [ ] CHANGE PASSWORD
-- [x] ME (Page controller complete)
-- [ ] USER DETAIL
+Wetube는 node.js 프레임 워크와 바닐라 자바스크립트를 이용해서 만든 유튜브 클론 앱 입니다. 이 어플리케이션은 [노마드 코더](https://nomadcoders.co/) 사이트의 유튜브 클론 앱 만들기 강의를 참고해서 만들었습니다.
+  
+  
+  
+Wetube is youtube clone app and I made this app using node.js and vanila javascript. Also, I did refer to the lectures called "making youtube clone app" on [nomad coder](https://nomadcoders.co/).
