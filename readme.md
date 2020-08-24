@@ -12,9 +12,6 @@ Wetube는 node.js 프레임 워크와 바닐라 자바스크립트를 이용해�
 <br/>
 <br/>
 
-<<<<<<< HEAD
-# 🖐 소개(Introduction)
-=======
 # 🔨 사용한 NPM 툴(used npm tool)
 ```
  "dependencies": {
@@ -63,8 +60,6 @@ Wetube는 node.js 프레임 워크와 바닐라 자바스크립트를 이용해�
 # 📢 특징(Characteristic)
 
 - 이 어플리케이션은 서버가 단순히 클라이언트의 요청에 대한 응답만 보내도록 하는 stateless 형태로 구현하였습니다. DB는 No SQL 언어인 MongoDB를 이용하였고, 클라우드는 aws S3, Mongo Atlas를 이용하였습니다(I make this app as the type called stateless server. The stateless server is structure that the server act only to send response to client. I selected mongoDB as the database and aws S3, Mongo Atlas as cloud)
->>>>>>> 315896fd913356d16691aa82e08cd5dbff92fc79
-
 
 - 이 어플리케이션의 기능은 다음과 같습니다(This app has the functions as following:).
   * 회원가입, 깃허브 아이디로 회원가입, 구글 아이디로 회원가입(Join yourself, join with github and google id)
