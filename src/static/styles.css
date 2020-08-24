@@ -1642,7 +1642,8 @@ footer {
         display: flex; }
         .videoDetail-page .videoDetail__col:first-child .videoDetail__header .videoDetail__row:first-child span {
           font-size: 2.8rem;
-          font-weight: 600; }
+          font-weight: 600;
+          word-break: break-all; }
         .videoDetail-page .videoDetail__col:first-child .videoDetail__header .videoDetail__row:first-child a {
           display: -webkit-box;
           display: -webkit-flex;
@@ -1961,8 +1962,8 @@ footer {
       -o-object-fit: cover;
          object-fit: cover; }
   .videoBlock .videoBlock__info .videoBlock__col:last-child {
-    width: 100%;
-    padding-top: 5px; }
+    padding-top: 5px;
+    word-break: break-all; }
   .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row {
     width: 100%; }
     .videoBlock .videoBlock__info .videoBlock__col .videoBlock__row:first-child {

@@ -28,8 +28,8 @@
         }
       }
       &:last-child {
-        width: 100%;
         padding-top: 5px;
+        word-break: break-all;
       }
 
       .videoBlock__row {
