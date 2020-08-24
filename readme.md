@@ -6,7 +6,9 @@ Wetube는 node.js 프레임 워크와 바닐라 자바스크립트를 이용해�
 
 # 🚘 링크(To Link)
 
-[WETUBE](https://secret-savannah-99819.herokuapp.com/)
+- Link -> [WETUBE](https://secret-savannah-99819.herokuapp.com/)
+- 공유 아이디(shared Id): wetubeAdmin@gmail.com
+- 공유 비밀번호(shared Password): 123
 <br/>
 <br/>
 
