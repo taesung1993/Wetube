@@ -59,6 +59,5 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 
 # 📢 기능(Characteristic)
 
-1. 반응형 웹(Responsive)
-<br/>
-<div style="text-align:center"><img src="images/반응형.gif" width="80%"/></div>
+1. 반응형 웹 사이트
+<p align="center"><img src="images/반응형.gif" width="80%"/></div>
