@@ -94,29 +94,34 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 
 #### 6. 댓글
 
-1. 댓글 쓰기
+- 댓글 쓰기
 
 <p align="center"><img src="images/댓글쓰기.gif" width="100%"/></p>
 <br/>
 <br/>
-2. 댓글 수정
+
+- 댓글 수정
 
 <p align="center"><img src="images/댓글수정.gif" width="100%"/></p>
 <br/>
 <br/>
-3. 댓글 삭제
+
+- 댓글 삭제
+
 <p align="center"><img src="images/댓글삭제.gif" width="100%"/></p>
 <br/>
 <br/>
 
 #### 7. 좋아요 및 유저 팔로우
 
-1. 영상 좋아요
+- 영상 좋아요
+
 <p align="center"><img src="images/좋아요.gif" width="100%"/></p>
 <br/>
 <br/>
 
-2. 유저 팔로우
+- 유저 팔로우
+
 <p align="center"><img src="images/팔로우.gif" width="100%"/></p>
 <br/>
 <br/>
