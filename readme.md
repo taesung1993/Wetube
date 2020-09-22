@@ -125,3 +125,33 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 <p align="center"><img src="images/팔로우.gif" width="100%"/></p>
 <br/>
 <br/>
+
+### 8. 비디오
+
+- 업로드
+<p align="center"><img src="images/업로드.gif" width="100%"/></p>
+<br/>
+<br/>
+
+- 수정
+<p align="center"><img src="images/수정.gif" width="100%"/></p>
+<br/>
+<br/>
+
+- 삭제
+<p align="center"><img src="images/비디오삭제.gif" width="100%"/></p>
+<br/>
+<br/>
+
+### 9. 프로필
+
+- 프로필 사진 삭제
+
+<p align="center"><img src="images/사진지우기.gif" width="100%"/></p>
+<br/>
+<br/>
+
+- 프로필 사진 등록 및 이름 바꾸기
+<p align="center"><img src="images/사진업로드.gif" width="100%"/></p>
+<br/>
+<br/>
