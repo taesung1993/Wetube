@@ -59,32 +59,32 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 
 # 📢 기능(Characteristic)
 
-#### 1. 반응형 웹 사이트
+### 1. 반응형 웹 사이트
 
 <p align="center"><img src="images/반응형.gif" width="100%"/></p>
 <br/>
 <br/>
 
-#### 2. 로그인
+### 2. 로그인
 
 <p align="center"><img src="images/로그인1.gif" width="100%"/></p>
 <p align="center"><img src="images/로그인2.gif" width="100%"/></p>
 <br/>
 <br/>
 
-#### 3. 비디오 페이지
+### 3. 비디오 페이지
 
 <p align="center"><img src="images/videoDetail.gif" width="100%"/></p>
 <br/>
 <br/>
 
-#### 4. 동영상 재생
+### 4. 동영상 재생
 
 <p align="center"><img src="images/videoPlay.gif" width="100%"/></p>
 <br/>
 <br/>
 
-#### 5. 관련 비디오
+### 5. 관련 비디오
 
 관련 비디오는 다음 비디오 + 게시자가 팔로우한 유저의 비디오로 이루어져 있습니다.
 
@@ -92,7 +92,7 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 <br/>
 <br/>
 
-#### 6. 댓글
+### 6. 댓글
 
 - 댓글 쓰기
 
@@ -112,7 +112,7 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 <br/>
 <br/>
 
-#### 7. 좋아요 및 유저 팔로우
+### 7. 좋아요 및 유저 팔로우
 
 - 영상 좋아요
 
