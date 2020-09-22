@@ -3,6 +3,7 @@
 Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용해서 만든 유튜브 클론 웹 사이트 입니다.
 <br/>
 <br/>
+<br/>
 
 # 🚘 링크(To Link)
 
@@ -11,8 +12,6 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 - 공유 비밀번호(shared Password): 123
   <br/>
   <br/>
-
-# 🖐 소개(Introduction)
 
 # 🔨 사용한 NPM 툴(used npm tool)
 
@@ -39,7 +38,7 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
   <br/>
   <br/>
 
-4. 로그인
+<<<<<<< HEAD 4. 로그인
 
 - passport.js
   <br/>
