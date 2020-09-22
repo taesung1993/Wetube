@@ -83,8 +83,11 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 <p align="center"><img src="images/videoPlay.gif" width="100%"/></div>
 <br/>
 <br/>
+
 #### 5. 관련 비디오
- 관련 비디오는 다음 비디오 + 게시자가 팔로우한 유저의 비디오로 이루어져 있습니다.
+
+관련 비디오는 다음 비디오 + 게시자가 팔로우한 유저의 비디오로 이루어져 있습니다.
+
  <p align="center"><img src="images/관련비디오.gif" width="100%"/></div>
 <br/>
 <br/>
