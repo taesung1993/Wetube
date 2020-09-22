@@ -62,3 +62,10 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 #### 1. 반응형 웹 사이트
 
 <p align="center"><img src="images/반응형.gif" width="100%"/></div>
+<br/>
+<br/>
+
+#### 2. 로그인
+
+<p align="center"><img src="images/로그인1.gif" width="100%"/></div>
+<p align="center"><img src="images/로그인2.gif" width="100%"/></div>
