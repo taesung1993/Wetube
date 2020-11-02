@@ -16,6 +16,8 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
 # 🔨 스킬(Skills)
 
 <img src="images/wetubeskill.png" width="100%"/>
+<br/>
+<br/>
 
 # 📢 기능(Characteristic)
 
