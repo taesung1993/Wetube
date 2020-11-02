@@ -13,49 +13,9 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
   <br/>
   <br/>
 
-# 🔨 사용한 NPM 툴(used npm tool)
+# 🔨 스킬(Skills)
 
-1. 데이터베이스
-
-- MongoDB
-- mongoose.js
-- aws-sdk
-- multerS3
-  <br/>
-  <br/>
-
-2. 서버 툴
-
-- Express.js
-  <br/>
-  <br/>
-
-3. Polyfill 및 프론트앤드
-
-- babel
-- webpack
-- scss
-  <br/>
-  <br/>
-
-4. 로그인
-
-- passport.js
-  <br/>
-  <br/>
-
-5. API 처리
-
-- axios.js
-  <br/>
-  <br/>
-
-6. 기타
-
-- Heroku
-
-<br/>
-<br/>
+<img src="images/wetubeskill.png" width="100%"/>
 
 # 📢 기능(Characteristic)
 
