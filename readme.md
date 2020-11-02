@@ -38,7 +38,7 @@ Wetube는 node.js 프레임 워크와 ES6 바닐라 자바스크립트를 이용
   <br/>
   <br/>
 
-<<<<<<< HEAD 4. 로그인
+4. 로그인
 
 - passport.js
   <br/>
